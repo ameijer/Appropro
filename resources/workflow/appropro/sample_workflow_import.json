@@ -1,0 +1,50 @@
+[
+  {
+    "name" : "IMPORT",
+    "sequence" : 0,
+    "description" : "Imported letter to sign on to from email or from feed",
+    "permittedGroups" : ["LEGE", "MANAGER"],
+    "actions" : ["PUBLISH_IMPORTED_TO_OFFICE"]
+  },
+  {
+    "name" : "Considering",
+    "sequence" : 1,
+    "description": "The letter is evaluated by office staff to decide its merit",
+    "permittedGroups" : ["LEGE"],
+    "actions" : ["NOTIFY_CONSIDERING"]
+  },
+  {
+    "name" : "LA Approval",
+    "sequence" : 2,
+    "description": "The letter is evaluated by the LA",
+    "permittedGroups" : ["LEGE"]
+  },
+  {
+    "name" : "LD Approval",
+    "sequence" : 3,
+    "description": "The letter is evaluated by the LD",
+    "permittedGroups" : ["LEGE"]
+  },
+  {
+    "name" : "Senator Approval",
+    "sequence" : 4,
+    "description": "The senator has approved the letter",
+    "permittedGroups" : ["LEGE"]
+
+  },
+  {
+    "name" : "Awaiting Signature",
+    "sequence" : 5,
+    "description": "The senator has approved the letter",
+    "permittedGroups" : ["FRONT_OFFICE, INTERN, LEGE"],
+    "actions" : ["NOTIFY_WILLSIGN", "AWAITING_SIGNATURE"]
+
+  },
+  {
+    "name" : "Signed",
+    "sequence" : 6,
+    "description": "The senator has approved the letter",
+    "permittedGroups" : ["FRONT_OFFICE, INTERN, LEGE"],
+    "actions" : ["NOTIFY_SIGNED", "SIGNED"]
+  }
+]

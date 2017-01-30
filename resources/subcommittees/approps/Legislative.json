@@ -1,0 +1,9 @@
+{
+	"name": "Legislative Branch",
+	"nickname": "Legislative",
+        "committee": "Appropriations",
+	"description": "This subcommittee is responsible for funding operations of the U.S. House of Representatives and the United States Senate. The subcomittee recommends funding for several joint agencies of Congress, including the Library of Congress, U.S. Capitol Police, Congressional Budget Office, Government Accountability Office, and the Capitol Visitors Center. \n By tradition, the House of Representatives does not oversee or recommend funding levels for the Senate and the Senate does not recommend funding for the House. This includes separate House and Senate activities overseen by the Architect of the Capitol. The subcommittee sets overall funding levels for Senate salaries, officers, and employees, including the Senate Office of the Vice President, Office of the Sergeant at Arms, and the Office of the Secretary of the Senate. Each senator receives an allocation for official expenses, including the hiring of staff and office management. Funding for both houses of Congress are then combined in the final conference committee report prior to being approved by Congress and sent to the President for his signature.",
+	"color": "#d88b37",
+	"chair": { "first": "Shelley", "last": "Capito" },
+        "rankingMember": { "first": "Brian", "last": "Schatz" }
+}

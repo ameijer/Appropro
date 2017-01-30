@@ -1,0 +1,47 @@
+/* Custom Stylesheet */
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 100;
+    text-align: center;
+    font-family: helvetica;
+}
+
+.product-card {
+	height: 200px;
+	width: 200px;
+	display: inline-block;
+	background: rgb(300,300,300);
+	z-index: 10;
+	
+	color: black;
+	
+	overflow: visible;
+  	margin: 5px 5px;
+  	text-align: left;
+  	vertical-align: text-top;
+}
+
+.product-card .field {
+	margin: 5px;
+}
+
+.product-card .name {
+	font-size: 1.2em;
+	text-align: center;
+	display: block;
+}
+
+.product-card .description {
+
+}
+
+.main {
+	display:inline-block;
+}
+
+h2 {
+	margin: 20px;
+}

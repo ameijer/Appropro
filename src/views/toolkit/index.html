@@ -1,0 +1,72 @@
+<!--
+@Date:   2017-01-15T22:06:07-05:00
+@Filename: index.html
+@Last modified time: 2017-01-29T17:47:26-05:00
+@License: Distributed under the MIT license: https://opensource.org/licenses/MIT
+@Copyright: Copyright (c) 2017 Alex Meijer and Aidan Hoolachan
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Toolkit</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="Author for Onextrapixel" />
+	<link rel="shortcut icon" href="../file/favicon.gif">
+	<link rel="stylesheet" type="text/css" href="css/default.css" />
+
+	<!-- Edit Below -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="css/animate.min.css"></script>
+	<link href='css/animate.min.css' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/Toolkit.css" />
+	<link rel="stylesheet" href="css/lib/w3.css">
+	<script src="js/modernizr.js"></script>
+
+	<body class="main-bg-color">
+		<div class="container">
+			<!-- Top Navi -->
+			<div class="nav-top clearfix w3-card-4 dark-primary-color primary-text">
+				<span class="nav-title">Toolkit</span>
+				<span class="bar">
+					<span class="nav-button suite w3-card-2 toolkit">Toolkit</span>
+				<span class="nav-button login w3-card-2 rising-card selected account-mgmt">Account</span>
+				</span>
+			</div>
+			<div class="main main-bg-color">
+				<div>
+					<h2>Hello<span class="username"> User</span>, welcome to your toolkit.</h2>
+				</div>
+				<span class="w3-card-4 product-card purchased rising-card">
+					<span class="name field">Appropriations</span>
+				<span class="description field">Track 302(b) appropriation letters as they gain support.</span>
+				</span>
+				<span class="w3-card-4 product-card unpurchased rising-card">
+					<span class="name field">Needs</span>
+				<span class="description field">We make tools to help government run more smoothly, let us know what else you need!</span>
+				</span>
+			</div>
+		</div>
+		<!-- Container -->
+		<script>
+			$(document).ready(function() {
+				$('.toolkit').click(function() {
+					window.open('Toolkit.html');
+				});
+				$('.account-mgmt').click(function() {
+					window.open('https://manage.appropro.co/account');
+				});
+
+
+			});
+		</script>
+	</body>
+
+</html>

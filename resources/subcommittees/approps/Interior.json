@@ -1,0 +1,9 @@
+{
+	"name": "Interior, Environment, and Related Agencies",
+	"nickname": "Interior and Environment",
+        "committee": "Appropriations",
+	"description": "This subcommittee has jurisdiction over all Department of Interior discretionary spending (except the U.S. Bureau of Reclamation) as well as the funding for the U.S. Forest Service within the Department of Agriculture. They oversee Native American programs, including the Interior Department's Bureau of Indian Affairs and the Indian Health Service, a division of the Department of Health and Human Services. Finally, the subcommittee oversees independent agencies of the federal government, including the Environmental Protection Agency and several cultural and historical agencies such as the Smithsonian Institution. \n The subcommittee previously had responsibility for several Department of Energy fossil energy programs, the Strategic Petroleum Reserve, and the U.S. Energy Information Administration. Those programs were consolidated with the Energy and Water Development Subcommittee in 2005.",
+	"color": "#54823e",
+	"chair": { "first": "Lisa", "last": "Murkowski" },
+        "rankingMember": { "first": "Tom", "last": "Udall" }
+}

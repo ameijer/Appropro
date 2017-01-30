@@ -1,0 +1,1240 @@
+<!--
+@Date:   2017-01-15T22:06:07-05:00
+@Filename: index.html
+@Last modified time: 2017-01-29T16:33:45-05:00
+@License: Distributed under the MIT license: https://opensource.org/licenses/MIT
+@Copyright: Copyright (c) 2017 Alex Meijer and Aidan Hoolachan
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Appropriations</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="Aidan Hoolachan" />
+	<link rel="shortcut icon" href="../file/favicon.gif">
+	<link rel="stylesheet" type="text/css" href="/css/default.css" />
+
+	<!-- Edit Below -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" href="css/lib/w3.css">
+
+	<!-- Compiled and minified CSS -->
+	<script src="/js/lib/jquery.matchHeight.js"></script>
+	<script src="/js/etherpad-jquery-plugin.js"></script>
+	<script src="/js/reactivity.js"></script>
+	<script src="/js/CookieHandler.js"></script>
+	<script type="text/javascript" src="/js/workflow.js"></script>
+</head>
+
+<body class="main-bg-color">
+	<div class="container">
+		<!-- Top Navi -->
+		<div class="nav-top clearfix w3-card-4 dark-primary-color center">
+			<span class="nav-title nav-bar-left">Appropriations Letters</span>
+			<span class="search-bar w3-card-2">
+			        <input type="text" placeholder="Search All Letters" class="search-input"/>
+					<span class="material-icons rising-card w3-card-2 search-button">search</span>
+			</span>
+			<span class="bar">
+					<span class="nav-button login w3-card-2 rising-card account-mgmt">
+						<img class="display-ib user-icon" src="img/ic_account_box_white_48dp_1x.png"/>
+					</span>
+			</span>
+		</div>
+		<div class="main main-bg-color primary-text center">
+			<span class="lightest-background-color dark-text hide-when-toolbox ib-displayed search-tool-btn w3-card-2 rising-card">
+					Search Tools
+				</span>
+			<span class="lightest-background-color dark-text show-when-toolbox search-toolbox display-none w3-card-2">
+					<span class="hide-toolbox w3-card-2 rising-card">X</span>
+			<br>
+			<span>
+						<div class="middle-child-wrapper">
+							<span class="w3-card-2 search-tool rising-card update-results accent">Update Results</span>
+		</div>
+		<br>
+		<span class="search-tool-type">Subcommittee</span>
+		<br>
+		<span id="subcommittee-list"></span>
+		<br>
+		<span class="search-tool-type">Office</span>
+		<br>
+		<div class="office-filters">
+			<div class="pure-control-group office-filter">
+				<select class="office-dropdown" id="office-dropdown-0" name="office" type="text">
+									<option value="no-selection">Choose an office</option>
+								</select>
+			</div>
+		</div>
+		</span>
+		</span>
+		<ul class="tabs">
+			<li>
+				<input type="radio" checked name="tabs" id="tab0" />
+				<label for="tab0">Action Items</label>
+				<div id="tab-content0" class="w3-card-4 tab-content lightest-background-color dark-text">
+					<div class="feed-label">
+						Items that may require your attention
+					</div>
+					<span id="action-items-body">
+							</span>
+				</div>
+			</li>
+			<li>
+				<input type="radio" name="tabs" id="tab1" />
+				<label for="tab1">My Letters</label>
+				<div id="tab-content1" class="w3-card-4 tab-content lightest-background-color dark-text">
+					<div class="feed-label">
+						Letters that you have created, imported, or been directly involved with
+					</div>
+					<span id="my-body">
+			            </span>
+				</div>
+			</li>
+			<li>
+				<input type="radio" name="tabs" id="tab2" />
+				<label for="tab2">Office Letters</label>
+				<div id="tab-content2" class="w3-card-4 tab-content lightest-background-color dark-text">
+
+					<div class="feed-label">
+						Letters that your office has created, imported, or been directly involved with
+					</div>
+					<span id="office-body">
+			            </span>
+				</div>
+			</li>
+			<li>
+				<input type="radio" name="tabs" id="tab3" />
+				<label for="tab3">Add a Letter</label>
+				<div id="tab-content3" class="w3-card-4 tab-content lightest-background-color dark-text">
+					<div class="feed-label">
+						Create a new letter from scratch or a .docx file.
+					</div>
+					<span id="new-letter-body">
+<div class="left-aligned lightest-background-color dark-text blank-form">
+					<form action= "/newLetter" method="post" id="blank-letter-form" class="create-blank pure-form pure-form-aligned blank-letter-form parsed-submit">
+						<fieldset>
+							<div class="pure-control-group">
+								<label for="title">Title</label>
+								<input id="title" class="title" name="title" type="text" placeholder="Letter Title"></input>
+								<span for="title" class="title message"></span>
+				</div>
+				<div class="pure-control-group">
+					<label for="lead">Lead</label>
+					<span class="lead" id="lead">
+								</span>
+				</div>
+				<div class="pure-control-group">
+					<label for="colead">Co-lead</label>
+					<select class="colead-dropdown" id="colead" name="offices_-_colead" type="text">
+									<option name="no-selection" value="no-selection">Select a Colead</option>
+								</select>
+					<span for="colead" class="colead message"></span>
+				</div>
+				<div class="pure-control-group">
+					<label for="subcommittee">Subcommittee</label>
+					<select id="subcommittee" class="subcommittee-dropdown" name="subcommittee">
+									<option name="no-selection" value="no-selection">Select a subcommittee</option>
+								</select>
+					<span for="subcommittee" class="subcommittee-message message"></span>
+				</div>
+				<div class="pure-control-group">
+					<label for="funding-year">Funding Year</label>
+					<select class="funding-year" id="funding-year" name="FY">
+									<option name="2017">2017</option>
+									<option name="2018">2018</option>
+									<option name="2019">2019</option>
+									<option name="2020">2020</option>
+								</select>
+					<span for="funding-year" class="funding-year message"></span>
+				</div>
+				<div class="pure-control-group">
+					<label for="funding-amount">Amount Requested</label>
+					<input id="funding-amount" name="fundingAmount" type="number" placeholder="Amount Requested" />
+					<span for="funding-amount" class="funding-amount message"></span>
+				</div>
+				<div class="pure-control-group">
+					<label for="date-introduced">Date Created</label>
+					<input class="date-input" id="date-introduced" name="dateIntroduced" type="date" placeholder="Date Created" />
+					<span for="date-introduced" class="date-introduced message"></span>
+				</div>
+				<div class="pure-control-group import">
+					<label for="file-upload">Document File</label>
+					<input type="file" name="letterFiles" id="file-upload" class="box__file" />
+					<span for="file-upload" class="file-import message">(This is not set up yet. Initialization using a .docx or .pdf will be possible - possibly -  but not mandatory.</span>
+				</div>
+				<div class="pure-control-group">
+					<label for="create-submit">Create</label>
+					<button type="button" class="submit accent" id="create-submit">Create Letter</button>
+					<span for="create-submit" class="create-submit message"></span>
+				</div>
+				</fieldset>
+				</form>
+	</div>
+	</span>
+	</li>
+	</ul>
+	</div>
+	</div>
+	<!-- Container -->
+	<script>
+		var isSecondaryShowing = false;
+
+		// The "callback" argument is called with either true or false
+		// depending on whether the image at "url" exists or not.
+		function imageExists(url, callback) {
+			var img = new Image();
+			img.onload = function() {
+				callback(true);
+			};
+			img.onerror = function() {
+				callback(false);
+			};
+			img.src = url;
+		}
+
+		function getAndDisplayActionItems() {
+
+		}
+
+		function postAndDisplayActionItems() {
+
+		}
+
+		function getAndDisplayMyLetters() {
+			var myFeedGet = $.ajax({
+				type: "GET",
+				dataType: "json",
+				url: "/myLettersFeed",
+				data: {},
+			});
+
+			myFeedGet.done(function(results, status) {
+				if (status == "success") {
+					hideLoadingSymbol('#my-body');
+					if (results.letterItems.length > 0) {
+						results.letterItems.forEach(function(feedItem) {
+							addItem('my', feedItem);
+						});
+					} else {
+						displayEmptyFeedMessage('#my-body',
+							'You are not actively watching any letters. [SHOW ARCHIVED LETTERS]');
+					}
+				} else {
+					displayEmptyFeedMessage('#my-body',
+						'There was an error retrieving these letters. Please reload page to try again or contact the IT service center.');
+				}
+			});
+		}
+
+		function postAndDisplayMyLetters(query) {
+			var myFeedPost = $.ajax({
+				type: "POST",
+				dataType: "json",
+				url: "/myLettersFeed",
+				data: query
+			});
+
+			myFeedPost.done(function(results, status) {
+				if (status == "success") {
+					hideLoadingSymbol('#my-body');
+					if (results.letterItems.length > 0) {
+						results.letterItems.forEach(function(feedItem) {
+							addItem('my', feedItem);
+						});
+					} else {
+						displayEmptyFeedMessage('#my-body',
+							'No letters matching your search');
+					}
+				} else {
+					displayEmptyFeedMessage('#my-body',
+						'There was an error retrieving these letters. Please reload page to try again or contact the IT service center.');
+				}
+			});
+		}
+
+		function getAndDisplayArchivedLetters() {
+
+		}
+
+		function postAndDisplayArchivedLetters(queryTerms) {
+
+		}
+
+		function getAndDisplayOfficeLetters() {
+
+			var officeFeedGet = $.ajax({
+				type: "GET",
+				dataType: "json",
+				url: "/officeLettersFeed",
+				data: {},
+			});
+
+			officeFeedGet.done(function(results, status) {
+				if (status == "success") {
+					hideLoadingSymbol('#office-body');
+
+					if (results.letterItems.length > 0) {
+						results.letterItems.forEach(function(feedItem) {
+							addItem('office', feedItem);
+						});
+					} else {
+						displayEmptyFeedMessage('#office-body',
+							'Your office is not currently watching any letters.');
+					}
+				} else {
+					displayEmptyFeedMessage('#office-body',
+						'There was an error retrieving these letters. Please reload page or contact the IT service center.'
+					);
+				}
+			});
+		}
+
+		function postAndDisplayOfficeLetters(query) {
+
+			var officeFeedPost = $.ajax({
+				type: "POST",
+				dataType: "json",
+				url: "/officeLettersFeed",
+				data: query
+			});
+
+			officeFeedPost.done(function(results, status) {
+				if (status === "success") {
+					hideLoadingSymbol('#office-body');
+					if (results.letterItems.length > 0) {
+						results.letterItems.forEach(function(feedItem) {
+							addItem('office', feedItem);
+						});
+					} else {
+						displayEmptyFeedMessage('#office-body',
+							'Your office is not currently watching any letters that matched your search');
+					}
+				} else {
+					displayEmptyFeedMessage('#office-body',
+						'There was an error retrieving these letters. Please reload page or contact the IT service center.');
+				}
+			});
+		}
+
+		$(document).ready(function() {
+
+			CookieHandler.setup();
+			//WorkflowDiagram.setup();
+
+			displayLoadingSymbol('#feed-body');
+			displayLoadingSymbol('#my-body');
+			displayLoadingSymbol('#office-body');
+
+			//Get User Icon or use default
+			var imageUrl = 'https://manage.appropro.co/account/image';
+			imageExists(imageUrl, function(exists) {
+				if (exists) {
+					$('user-icon').attr({
+						'src': imageUrl
+					});
+				}
+			});
+
+			var whoAmIGet = $.ajax({
+				type: "GET",
+				dataType: "json",
+				url: "/who-am-I",
+				data: {},
+			});
+
+			whoAmIGet.done(function(results, status) {
+				if (status == "success") {
+					console.log(results);
+				}
+			});
+
+			//getAndDisplayActionItems();
+			//getAndDisplayMyLetters();
+			//getAndDisplayOfficeLetters();
+
+			/***********************
+			 * Set up the query filters
+			 ***********************/
+
+			//NOTE: Never decrement counter or expect the order to all be correct because middle offices might be removed.
+			var filterCtr = 0;
+
+			function addOfficeFilter() {
+				var divString = '<div class="pure-control-group office-filter">' +
+					'<select class="office-dropdown" id="office-dropdown-' + filterCtr + '" name="office" type="text">' +
+					'</select>' +
+					'<span class="w3-card-2 rising-card accent accent-text delete-office">X</span>' +
+					'</div>';
+				filterCtr = filterCtr + 1;
+
+				var office = $(divString);
+				addOfficeSelectionListener(office);
+
+				$('#office-dropdown-0').children().clone(true, true).appendTo(office.find('.office-dropdown'));
+
+				office.find('.delete-office').click(function() {
+					office.remove();
+				});
+
+				office.appendTo('.office-filters');
+			}
+
+			function addOfficeSelectionListener(dropdown) {
+				dropdown.change(function(selection) {
+					if ($(this).val() === 'no-selection') {} else {
+						addOfficeFilter();
+					}
+				});
+			}
+
+			addOfficeSelectionListener($('.office-dropdown'));
+
+			function addOffice(office) {
+				var officeOption = $('<option value="' + office._id + '">' + office.name.official_full + '</option>');
+				officeOption.appendTo($('#office-dropdown-' + filterCtr));
+			}
+
+			function parseFilters() {
+				var officeIds = [];
+				$('.office-filters .office-dropdown').val();
+			}
+
+			/*
+			 * Get all offices to search for
+			 */
+
+			function getAndAddListOfOffices() {
+
+				var officeListGet = $.ajax({
+					type: "GET",
+					dataType: "json",
+					url: "/congress",
+				});
+
+				officeListGet.done(function(results, status) {
+					if (status == 'success') {
+						if (results.congress.length > 0) {
+							results.congress.forEach(function(office) {
+								addOffice(office);
+							});
+						} else {
+							alert('Could not load Offices. Please contact webmaster');
+						}
+					}
+				});
+			}
+
+			getAndAddListOfOffices();
+
+			//END Get Offices for search params
+			Reactivity.setupCards();
+
+			$('.card-item').click(function() {
+				if (isSecondaryShowing) {
+					$('.secondary').addClass('no-secondary');
+					isSecondaryShowing = false;
+				} else {
+					$('.secondary').removeClass('no-secondary');
+					isSecondaryShowing = true;
+				}
+			});
+
+			$('.secondary-exit').click(function() {
+				$('.secondary').addClass('no-secondary');
+				isSecondaryShowing = false;
+			});
+
+			$('.account-mgmt').click(function() {
+				window.open('https://manage.appropro.co/account');
+			});
+
+			$('.search-tool-btn').click(function() {
+				$('.hide-when-toolbox').removeClass('display-ib');
+				$('.hide-when-toolbox').addClass('display-none');
+				$('.show-when-toolbox').removeClass('display-none');
+				$('.show-when-toolbox').addClass('display-ib');
+			});
+
+			$('.hide-toolbox').click(function() {
+				$('.show-when-toolbox').removeClass('display-ib');
+				$('.show-when-toolbox').addClass('display-none');
+				$('.hide-when-toolbox').removeClass('display-none');
+				$('.hide-when-toolbox').addClass('display-ib');
+			});
+
+			var checkSelectedSrc = '/img/check_box/ic_check_box_white_24dp_1x.png';
+			var checkUnselectedSrc = '/img/check_box_outline/ic_check_box_outline_blank_white_24dp_1x.png';
+
+			$('.subcommittee').click(function() {
+				$(this).toggleClass('selected');
+				$(this).toggleClass('unselected');
+
+				if ($(this).children('.check-box-wrapper').children('.check-box').attr('src') == checkSelectedSrc) {
+					$(this).children('.check-box-wrapper').children('.check-box').text('circle_o');
+				} else {
+					$(this).children('.check-box-wrapper').children('.check-box').text('check_circle');
+				}
+			});
+		});
+
+		function buildLoadingSymbol() {
+			var divString = '<div class="loading">' +
+				'	<svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">' +
+				'		<circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>' +
+				'	</svg>' +
+				'</div>';
+
+			return divString;
+		};
+
+		function clearFeed(feed) {
+			$(feed).empty();
+		};
+
+		function displayLoadingSymbol(feed) {
+			$(buildLoadingSymbol()).appendTo($(feed));
+			return;
+		};
+
+		function hideLoadingSymbol(feed) {
+			$(feed + ' .loading').remove();
+		};
+
+		function buildEmptyFeedMessage(msg) {
+			var divString = '<div class="empty-feed-message w3-card-2">' + msg + '</div>';
+			return divString;
+		};
+
+		function displayEmptyFeedMessage(feed, msg) {
+			$(buildEmptyFeedMessage(msg)).appendTo($(feed));
+		};
+
+		function feedItemDisplay(feedItemModel) {
+			var fundingLevelStr = feedItemModel.fundingLevel;
+			var fundingLevel = (fundingLevelStr === 'UP') ? 'upward' : 'downward';
+			var title = feedItemModel.title;
+			var leadName = feedItemModel.offices.lead.name.official_full;
+			var coleadName = feedItemModel.offices.colead.name.official_full;
+			var fundingAmount = feedItemModel.fundingAmount.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+
+
+			var divString = '<div class="animated fadeInRight w3-card-2 card-item rising-card">' +
+				'<img src="img/ic_arrow_' +
+				fundingLevel +
+				'_black_48dp_1x.png" class="vote-icon"/>' +
+				'<span class="proposal-info">' +
+				'<p class="proposal-title funded">' +
+				title +
+				'</p>' +
+				'<br>' +
+				'<span class="lead-name">' +
+				leadName + ' (Lead) </span><br>' +
+				'<span class="colead-name">' +
+				coleadName + ' (Co-Lead)</span>' +
+				'<br>' +
+				'<span class="budget">$' +
+				fundingAmount +
+				'</span>' +
+				'</span>' +
+				'<span class="subcommittee w3-card">' +
+				'Transportation, Housing, Urban Development' +
+				'</span>' +
+				'</div>';
+
+			return divString;
+		}
+
+		var displayMoreInfo = function() {
+
+			return divString;
+		}
+
+		var docIdToLaunch;
+
+
+		function subcommitteeDisplay(item) {
+			var divString = '<div class="w3-card-2 rising-card search-tool subcommittee selected">' +
+				'<div class="name">' +
+				item.name +
+				'</div><br>' +
+				'<div class="selected check-box-wrapper">' +
+				'<i class="check-box selected-indicator material-icons dark-text">check_circle</i>' +
+				'</div>' +
+				'</div>';
+
+			return divString;
+		}
+
+		function printLetterFocusInfo() {
+			var divString = '<div class="letter-focus-info w3-card-4 lightest-background-color dark-text unexpand">' +
+				'<div class="section">' +
+				'<h3 class="light-primary-color primary-text">Workflow</h3>' +
+				'<div class="workflow-table-wrapper w3-card-2">' +
+				'</div>' +
+				'</div>' +
+				'<div class="section">' +
+				'<h3 class="light-primary-color primary-text">Congressional Support</h3>' +
+				'<div class="congressional-support-wrapper w3-card-2">' +
+				'<div class="empty-message">' +
+				'<div class="explanation">This letter must be approved for circulation before other offices can express interest.</div>' +
+				'<div>' +
+				'</div>' +
+				'</div>' +
+				'</div>' +
+				'</div>' +
+				'<div class="center"><span class="secondary-field view-document w3-card-2 rising-card accent">View Letter</span></div>' +
+				'</div>';
+
+			return divString;
+		}
+
+		function bindToSecondary(feedItemModel) {
+			var secondary = $(printLetterFocusInfo());
+
+			docIdToLaunch = feedItemModel.etherPadID;
+			secondary.find('.secondary-field.view-document').click(function() {
+				window.open('https://www.appropro.co/web-editor/' + docIdToLaunch);
+			});
+
+			WorkflowDiagram.setLetter(feedItemModel);
+			WorkflowDiagram.renderTable(secondary);
+
+			return secondary;
+		}
+
+		var currentlyOpenInfo = {
+			'info': null,
+			'item': null
+		};
+
+		function addItem(list, item) {
+
+			var itemEl = feedItemDisplay(item);
+
+			var listEl;
+
+			switch (list) {
+				case ('feed'):
+					listEl = '#feed-body';
+					break;
+				case ('office'):
+					listEl = '#office-body';
+					break;
+				case ('my'):
+					listEl = '#my-body';
+					break;
+				case ('all'):
+					listEl = '#all-letters-body';
+					break;
+				default:
+					break;
+			}
+
+			var infoPanel = bindToSecondary(item);
+			var isInfoPanelAppended = false;
+			var boundItemEl = $(itemEl);
+
+			boundItemEl.click(function() {
+
+				if (!isInfoPanelAppended) {
+					isInfoPanelAppended = true;
+				}
+
+				if (currentlyOpenInfo.info === infoPanel) {
+					infoPanel.removeClass('expand w3-card-4').addClass('unexpand');
+					boundItemEl.removeClass('w3-card-4').addClass('w3-card-2');
+
+					currentlyOpenInfo.info = null;
+					currentlyOpenInfo.item = null;
+				} else {
+					infoPanel.removeClass('unexpand').addClass('expand w3-card-4');
+					boundItemEl.removeClass('w3-card-2').addClass('w3-card-4');
+
+					if (currentlyOpenInfo.info) {
+						currentlyOpenInfo.info.removeClass('expand w3-card-4').addClass('unexpand');
+						currentlyOpenInfo.item.removeClass('w3-card-4').addClass('w3-card-2');
+					};
+
+					currentlyOpenInfo.info = infoPanel;
+					currentlyOpenInfo.item = boundItemEl;
+				}
+			});
+
+			boundItemEl.appendTo(listEl);
+			boundItemEl.after(infoPanel);
+		}
+
+		$(window).scroll(function() {
+			if ($(window).scrollTop() == $(document).height() - $(window).height()) {}
+		});
+
+		$('.search-button').click(function() {
+			updateResults();
+		});
+
+		function updateResults() {
+			window.alert('Not set up yet.');
+
+			clearFeed('#feed-body');
+			displayLoadingSymbol('#feed-body');
+
+			var subcommitteeFilters = [];
+			$('.subcommittee.selected').each(
+				function(idx, item) {
+					subcommitteeFilters = subcommitteeFilters.concat($(item).data('subcommitteeId'));
+				}
+			);
+
+			var officeIds = [];
+			$('.office.selected').each(
+				function(idx, item) {
+					officeIds = officeIds.concat($(item).data('officeId'));
+				}
+			);
+
+			var queryTerm = '';
+			$('.search-input').each(
+				function(idx, item) {
+					queryTerm = queryTerm + item.value;
+				}
+			);
+
+			var query = {
+				searchParams: {},
+				toExecute: true
+			};
+			query.queryTerms = queryTerm;
+			query.officeIds = officeIds;
+			query.subcommitteeIds = subcommitteeFilters;
+
+			postAndDisplayActionItems(query);
+			postAndDisplayMyLetters(query);
+			postAndDisplayOfficeLetters(query);
+			postAndDisplayArchivedLetters(query);
+
+		}
+
+		$('.update-results').click(function() {
+			updateResults();
+		});
+	</script>
+	<script type="text/javascript">
+		var dates = document.getElementsByClassName('date-input');
+		dates[0].valueAsDate = new Date();
+
+
+
+		var officesAjax = $.ajax({
+			type: "POST",
+			dataType: "json",
+			url: "/congress",
+			data: '{returnType: "name"}'
+		});
+
+		function displayOffice(o) {
+			var toDisplay = '<option value="' + o._id + '">' + o.name.last + ', ' + o.name.first + '</option>';
+			return toDisplay;
+		}
+
+		function addOffice(o) {
+			$(displayOffice(o)).appendTo('.colead-dropdown');
+			return;
+		}
+
+		officesAjax.done(function(results, status) {
+			if (status == "success") {
+				if (results.congress.length > 0) {
+					results.congress.forEach(function(o) {
+						addOffice(o);
+					});
+				} else {
+					//TODO: Could not load offices, add spinny thing.
+				}
+			}
+		});
+
+		var subcommitteeGet = $.ajax({
+			type: "GET",
+			dataType: "json",
+			url: "/subcommittees"
+		});
+
+		function displayItem(sub) {
+			var toDisplay = '<option value="' + sub._id + '">' + sub.name + '</option>';
+			return toDisplay;
+		}
+
+
+		var checkSelectedSrc = '/img/check_box/ic_check_box_white_24dp_1x.png';
+		var checkUnselectedSrc = '/img/check_box_outline/ic_check_box_outline_blank_white_24dp_1x.png';
+
+		function addSubcommittee(item) {
+			var itemEl = subcommitteeDisplay(item);
+			var listEl = $('#subcommittee-list');
+
+			$(itemEl).appendTo(listEl).click(function() {
+				$(this).toggleClass('selected');
+				$(this).toggleClass('unselected');
+
+				if ($(this).children('.check-box-wrapper').children('.check-box').attr('src') == checkSelectedSrc) {
+					$(this).children('.check-box-wrapper').children('.check-box').text('circle_o');
+				} else {
+					$(this).children('.check-box-wrapper').children('.check-box').text('check_circle');
+				}
+			}).data('subcommitteeId', item._id);
+
+			Reactivity.setupCards();
+
+			$(displayItem(item)).appendTo('.subcommittee-dropdown');
+
+			return;
+		}
+
+		subcommitteeGet.done(function(results, status) {
+			if (status == "success") {
+				hideLoadingSymbol('#subcommittee-list');
+				if (results.subcommittees.length > 0) {
+					results.subcommittees.forEach(function(sub) {
+						addSubcommittee(sub);
+					});
+
+					$('.subcommittee').matchHeight();
+				} else {
+					//TODO: Could not load subcommittees, add spinny thing.
+				}
+			}
+		});
+
+		var whoAmIGet = $.ajax({
+			type: "GET",
+			dataType: "json",
+			url: "/who-am-i"
+		});
+
+		var currentUser = null;
+
+		whoAmIGet.done(function(results, status) {
+			if (status == "success") {
+				currentUser = results.user;
+				console.log(currentUser);
+				if (typeof currentUser.office !== "undefined" && currentUser.office !== null) {
+					$('.lead').html(currentUser.office.name.official_full);
+				}
+			}
+		});
+
+		$(document).ready(function() {
+
+			Reactivity.setupCards();
+			CookieHandler.setup();
+
+			$('.file-upload').click(function(e) {
+				$(this).find('input[type="file"]').click();
+			});
+
+			$('.file-upload input').click(function(e) {
+				//e.preventDefault();
+				e.stopPropagation();
+			});
+
+			var showFiles = function(files) {
+				$('.file-name').text(files[0].name);
+			}
+
+			$('.file-upload').each(function() {
+				$(this).find('input[type="file"]').on('change', function(e) {
+					showFiles(e.target.files);
+				});
+			});
+
+			function launchImportForm() {
+				$('.select-creation-method').removeClass('display-ib').addClass('display-none');
+				$('.blank-form').removeClass('display-none').addClass('display-ib');
+				$('.secondary').addClass('no-secondary');
+				$('.hidden-backdrop').addClass('no-secondary');
+				isSecondaryShowing = false;
+			}
+
+			function hideImportFields() {
+				$('.import-field').addClass('display-none');
+			}
+
+			$('.launch-create-blank').click(function() {
+				hideImportFields();
+				$('.select-creation-method').removeClass('display-ib').addClass('display-none');
+				$('.blank-form').removeClass('display-none').addClass('display-ib');
+			});
+
+			$('.blank-form .exit-button').click(function() {
+				$('.select-creation-method').removeClass('display-none').addClass('display-ib');
+				$('.blank-form').removeClass('display-ib').addClass('display-none');
+			});
+
+			$('.launch-use-template').click(function() {
+				$('.select-creation-method').removeClass('display-ib').addClass('display-none');
+				$('.select-template').removeClass('display-none').addClass('display-ib');
+			});
+
+			$('.select-template .exit-button').click(function() {
+				$('.select-creation-method').removeClass('display-none').addClass('display-ib');
+				$('.select-template').removeClass('display-ib').addClass('display-none');
+			});
+
+			$('.launch-import-letter').click(function() {
+				$('.select-creation-method').removeClass('display-ib').addClass('display-none');
+				$('.import-options').removeClass('display-none').addClass('display-ib');
+			});
+
+			$('.import-options .exit-button').click(function() {
+				$('.select-creation-method').removeClass('display-none').addClass('display-ib');
+				$('.import-options').removeClass('display-ib').addClass('display-none');
+			});
+
+			var isSecondaryShowing = false;
+			$('.profile-picture-btn').click(function() {
+				if (isSecondaryShowing) {
+					$('.secondary').addClass('no-secondary');
+					$('.hidden-backdrop').addClass('no-secondary');
+					isSecondaryShowing = false;
+				} else {
+					$('.secondary').removeClass('no-secondary');
+					$('.hidden-backdrop').removeClass('no-secondary');
+					isSecondaryShowing = true;
+				}
+			});
+
+			$('.secondary-exit').click(function() {
+				$('.secondary').addClass('no-secondary');
+				$('.hidden-backdrop').addClass('no-secondary');
+				isSecondaryShowing = false;
+			});
+		});
+
+		function putMessage(messageClass, message) {
+			$('form.create-blank .' + messageClass + '.message').text(message);
+		}
+
+		function clearAllMessages() {
+			$('.message').text('');
+		}
+
+		function clearMessage(messageClasses) {
+			var toClear = [].concat(messageClasses);
+			//TODO: cclear messages
+		}
+
+		function validateCreationForm(formDiv) {
+			var $form = $(formDiv);
+
+			var isValid = true;
+
+			//Want to check each option and give user feedback
+			//It only takes one invalid field to invalidate
+			//validateSomething() must come before && isValid in order to guarantee execution.
+
+			clearAllMessages();
+
+			isValid = validateTitle($form.find('.title').val()) && isValid;
+			isValid = validateColead($form.find('.colead-dropdown').val()) && isValid;
+			isValid = validateSubcommittee($form.find('.subcommittee-dropdown').val()) && isValid;
+			isValid = validateFundingYear($form.find('.funding-year').val()) && isValid;
+			isValid = validateFundingAmount($form.find('input#funding-amount').val()) && isValid;
+			isValid = validateDateCreated($form.find('input#date-introduced').val()) && isValid;
+			isValid = validateFileImport($form.find('.file-import')) && isValid;
+
+			return isValid;
+		};
+
+		function validateTitle(title) {
+			var isValid = true;
+
+			if (typeof title === 'undefined' || title === null || title === '') {
+				isValid = false;
+				putMessage('title', 'Must choose a title.');
+				return isValid;
+			}
+
+			if (isValid.length < 3) {
+				putMessage('title', "Title must be at least 3 letters long.");
+				isValid = false;
+			}
+
+			return isValid;
+		}
+
+		function validateColead(colead) {
+			var isValid = true;
+
+			console.log(colead === 'no-selection');
+			if (typeof colead === 'undefined' || colead === null || colead === "" || colead === 'no-selection') {
+				putMessage('colead', 'Choose a colead');
+				isValid = false;
+			}
+
+			return isValid;
+		}
+
+		function validateSubcommittee(sub) {
+			var isValid = true;
+
+			if (typeof sub === 'undefined' || sub === null || sub === '' || sub === 'no-selection') {
+				putMessage('subcommittee-message', 'Choose a subcommittee.');
+				isValid = false;
+			}
+
+			return isValid;
+		}
+
+		function validateFundingYear(fundingYear) {
+			var isValid = true;
+
+			if (typeof fundingYear === 'undefined' || fundingYear === null) {
+				putMessage('funding-year', 'Choose a funding year.');
+				isValid = false;
+				return isValid;
+			}
+
+			if (fundingYear < 0) {
+				isValid = false;
+			}
+
+			return isValid;
+		}
+
+		function validateFundingAmount(funding) {
+			var isValid = true;
+
+			//if(typeof funding === 'undefined' || funding === null || funding == ""){
+			if (!funding) {
+				putMessage('funding-amount', 'Choose a funding amount.');
+				isValid = false;
+			}
+
+			return isValid;
+		}
+
+		function validateDateCreated(dateCreated) {
+			var isValid = true;
+
+			if (typeof dateCreated === 'undefined' || dateCreated === null) {
+				putMessage('date-created', 'When was this letter initially created?');
+				isValid = false;
+				return isValid;
+			}
+
+			return isValid;
+		}
+
+		function validateFileImport() {
+			return true;
+		}
+
+
+		// applying the effect for every form
+		function onLetterCreated(resp) {
+			window.location.href = 'https://www.appropro.co/web-editor/' + resp.docId;
+		}
+
+		/*
+		 * Beginning of the multi-part form code
+		 */
+		function multipartFormToAjax() {
+			var data = new FormData($('form')[0]);
+			//$.each(ile-upload')[0].files, function(i, file) {
+			//	data.append('file-'+i, file);
+			//})
+
+			$.ajax({
+				url: 'swagger',
+				data: data,
+				cache: false,
+				contentType: false,
+				processData: false,
+				type: 'POST',
+				success: function(data) {
+					alert(data);
+				}
+			});
+		}
+
+		/*
+		 * Mozilla's tutorial for sending a multi-part form with binary file data, too.
+		 */
+		// Because we want to access DOM node,
+		// we initialize our script at page load.
+
+		function validateData() {
+			var form = document.getElementById('blank-letter-form');
+			var $form = $(form);
+
+			var isValid = validateCreationForm($form);
+
+			return isValid;
+		}
+
+		function serializeNewLetterData() {
+			var form = document.getElementById('blank-letter-form');
+			var $form = $(form);
+
+			var serializedForm = $form.serializeObject();
+			var toSubmit = JSON.stringify(serializedForm);
+
+			return toSubmit;
+		}
+
+		window.addEventListener('load', function() {
+
+			var file = {
+				dom: document.getElementById("file-upload"),
+				binary: null
+			};
+
+			// We use the FileReader API to access our file content
+			var reader = new FileReader();
+
+			// Because de FileReader API is asynchronous, we need
+			// to store it's result when it has finish to read the file
+			reader.addEventListener("load", function() {
+				file.binary = reader.result;
+			});
+
+			// At page load, if a file is already selected, we read it.
+			if (file.dom.files[0]) {
+				reader.readAsBinaryString(file.dom.files[0]);
+			}
+
+			// However, we will read the file once the user selected it.
+			file.dom.addEventListener("change", function() {
+				if (reader.readyState === FileReader.LOADING) {
+					reader.abort();
+				}
+
+				reader.readAsBinaryString(file.dom.files[0]);
+			});
+
+			// The sendData function is our main function
+			function sendData(jsonToSend) {
+				// At first, if there is a file selected, we have to wait it is read
+				// If it is not, we delay the execution of the function
+				if (!file.binary && file.dom.files.length > 0) {
+					setTimeout(sendData, 10);
+					return;
+				}
+
+				// To construct our multipart form data request,
+				// We need an XMLHttpRequest instance
+				var XHR = new XMLHttpRequest();
+
+				// We need a sperator to define each part of the request
+				var boundary = "blob";
+
+				// And we'll store our body request as a string.
+				var data = "";
+
+				// So, if the user has selected a file
+				if (file.dom.files[0]) {
+					// We start a new part in our body's request
+					data += "--" + boundary + "\r\n";
+
+					// We said it's form data (it could be something else)
+					data += 'content-disposition: form-data; '
+						// We define the name of the form data
+						+
+						'name="' + file.dom.name + '"; '
+						// We provide the real name of the file
+						+
+						'filename="' + file.dom.files[0].name + '"\r\n';
+					// We provide the MIME type of the file
+					data += 'Content-Type: ' + file.dom.files[0].type + '\r\n';
+
+					// There is always a blank line between the meta-data and the data
+					data += '\r\n';
+
+					// We happen the binary data to our body's request
+					data += file.binary + '\r\n';
+				}
+
+				// For text data, it's simpler
+				// We start a new part in our body's request
+				data += "--" + boundary + "\r\n";
+
+				//This is parsing an input text field -- we already have this code in $form.serializeObject, and should
+				//replace this info with a JSON body field.
+
+				// We said it's form data and give it a name
+				//data += 'content-disposition: form-data; name="' + text.name + '"\r\n';
+				// There is always a blank line between the meta-data and the data
+				//data += '\r\n';
+
+				// We happen the text data to our body's request
+				//data += text.value + "\r\n";
+
+				data += 'content-disposition: form-data; name="letter-info"\r\n';
+				data += 'content-type: application/json; charset=utf-8\r\n';
+				data += '\r\n';
+				data += jsonToSend;
+				data += '\r\n';
+
+				// Once we are done, we "close" the body's request
+				data += "--" + boundary + "--";
+
+				// We define what will happen if the data are successfully sent
+				XHR.addEventListener('load', function(event) {
+					console.log(event);
+					//ajh TODO:
+					//onLetterCreated(event.response);
+				});
+
+				// We define what will happen in case of error
+				XHR.addEventListener('error', function(event) {
+					alert('Oups! Something goes wrong.');
+				});
+
+				// We setup our request
+				XHR.open('POST', '/newLetter');
+
+				// We add the required HTTP header to handle a multipart form data POST request
+				XHR.setRequestHeader('Content-Type', 'multipart/form-data; boundary=' + boundary);
+
+				// And finally, We send our data.
+				// Due to Firefox's bug 416178, it's required to use sendAsBinary() instead of send()
+				XHR.send(data);
+			}
+
+			// At least, We need to access our form
+			var form = document.getElementById('blank-letter-form');
+
+			// to take over the submit event
+			//  form.addEventListener('submit', function (event) {
+			//    event.preventDefault();
+			//
+			//	if(validateData()){
+			//    	sendData(serializeNewLetterData());
+			//	}
+
+			//  });
+
+			$('.blank-letter-form.parsed-submit').each(function() {
+				var $form = $(this);
+				$form.find('button.submit').click(function(e) {
+					e.preventDefault();
+					if (validateData()) {
+						window.alert('We are currently adding file-upload to new letter creation, so this feature will be down for a day or two, please sit tight. Thank you!');
+						sendData(serializeNewLetterData());
+					}
+				});
+			});
+		});
+	</script>
+</body>
+
+</html>

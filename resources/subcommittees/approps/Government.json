@@ -1,0 +1,9 @@
+{
+	"name": "Financial Services and General Government",
+	"nickname": "Finance ad Government",
+        "committee": "Appropriations",
+	"description": "This subcommittee continues to have jurisdiction over the budget of the District of Columbia, and was given jurisdiction over agency funding handled by the Subcommittee on Transportation, Treasury, the Judiciary and Housing and Urban Development. The new subcommittee is responsible for funding general provisions of the federal government, with primary jurisdiction over discretionary spending of the Treasury Department, the United States federal judiciary, and the District of Columbia. The most diverse subcommittee, it also oversees funding for the Executive Office of the President and the Office of Management and Budget as well as various independent federal agencies, including the Federal Deposit Insurance Corporation, the Federal Communications Commission, the Federal Election Commission, the National Archives and Records Administration, and Office of National Drug Control Policy.",
+	"color":"#b2b443",
+	"chair": { "first": "John", "last": "Boozman" },
+        "rankingMember": { "first": "Chris", "last": "Coons" }
+}

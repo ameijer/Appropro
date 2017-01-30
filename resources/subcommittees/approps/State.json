@@ -1,0 +1,9 @@
+{
+	"name": "State, Foreign Operations, and Related Programs",
+	"nickname": "State and Foreign Ops",
+        "committee": "Appropriations",
+	"description": "This subcommittee oversees the U.S. State Department and several international programs and agencies, including international programs within the Department of Defense. It also manages the Peace Corps, the Export-Import Bank, the Millennium Challenge Corporation, the Commission on Security and Cooperation in Europe, and United States contributions to the International Monetary Fund and United Nations activities.",
+	"color": "#96803e",
+	"chair": { "first": "Lindsey", "last": "Graham" },
+        "rankingMember": { "first": "Patrick", "last": "Leahy" }
+}

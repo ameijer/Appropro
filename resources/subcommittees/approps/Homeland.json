@@ -1,0 +1,9 @@
+{
+	"name": "Homeland Security",
+	"nickname": "Homeland Security",
+        "committee": "Appropriations",
+	"description": "The subcommittee is responsible for the Department of Homeland Security and its related agencies, including the Federal Emergency Management Agency, the Transportation Security Administration, U.S. Immigration and Customs Enforcement, U.S. Customs and Border Protection, U.S. Citizenship and Immigration Services, the U.S. Secret Service, and the United States Coast Guard. The subcommittee also provides funding for state and local preparedness efforts.",
+	"color": "#c062bb",
+	"chair": { "first": "John", "last": "Hoeven" },
+        "rankingMember": { "first": "Jeanne", "last": "Shaheen" }
+}

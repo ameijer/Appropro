@@ -1,0 +1,9 @@
+{
+	"name": "Energy and Water Development",
+	"nickname": "Energy and Water",
+        "committee": "Appropriations",
+	"description": "This subcommittee, as its name implies, is responsible for funding related to the Department of Energy and water development projects in the United States. It also oversees the Tennessee Valley Authority, the federal power marketing administrations, and non-defense nuclear power, including nuclear waste disposal and the Nuclear Regulatory Commission. \nIt is also responsible for the multibillion-dollar budget of the U.S. Army Corps of Engineers and the Interior Department's U.S. Bureau of Reclamation. The Corps of Engineers is the primary federal agency with responsibility over \"waters of the United States\" that plans, designs, builds, and operates water resources and other civil works projects, while the Bureau of Reclamation oversees federal dams, irrigation, and rural drinking water projects in the Western United States.",
+	"color":"#7764cb",
+	"chair": { "first": "Lamar", "last": "Alexander" },
+        "rankingMember": { "first": "Dianne", "last": "Feinstein" }
+}

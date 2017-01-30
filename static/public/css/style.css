@@ -1,0 +1,1614 @@
+/* Custom Stylesheet */
+
+/*
+ * Google material icon fonts
+ */
+
+@font-face {
+   font-family: 'Material Icons';
+   font-style: normal;
+   font-weight: 400;
+   src: url(/material-design-icons/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+   src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url(/material-design-icons/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+        url(/material-design-icons/iconfont/MaterialIcons-Regular.woff) format('woff'),
+        url(/material-design-icons/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 100;
+    font-family: helvetica;
+}
+
+.center {
+	text-align: center;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+}
+
+.secondary {
+	height: 75%;
+	width: 60%;
+	display: inline-block;
+	background: rgb(300,300,300);
+	z-index: 10;
+	position: fixed;
+	left: 20%;
+	top: 20%;
+		
+	overflow: scroll;
+  	margin: 0 auto;
+  	text-align: left;
+}
+
+.letter-focus-info {
+	margin-left: 48px;
+	margin-right: 48px;
+	text-align: left;
+	
+	/*
+	 * Animate on expand/unexpand
+	 */
+	
+	overflow: hidden;
+
+	/* Set our transitions up. */
+	-webkit-transition: max-height 0.5s;
+	-moz-transition: max-height 0.5s;
+	transition: max-height 0.5s;
+}
+
+.letter-focus-info.expand {
+	max-height: 1000px;
+}
+
+.letter-focus-info.unexpand {
+	max-height: 0px;
+}
+
+.letter-focus-info .section {
+	padding-left: 24px;
+	padding-right: 24px;
+}
+
+.letter-focus-info .section h3 {
+	margin: 0 0 0 0;
+	padding-top: 18px;
+	padding-bottom: 12px;
+	padding-left: 8px;
+}
+
+.congressional-support-wrapper .empty-message{
+	text-align: center;
+}
+
+.congressional-support-wrapper .empty-message .explanation {
+	color: #777777;
+}
+
+.secondary-panel {
+	display: inline-block;
+	margin: auto;
+	text-align: left;
+	vertical-align: top;
+	overflow: hidden;
+}
+
+.secondary-panel.left {
+	width: 50%;
+}
+
+.secondary-field {
+	font-size: 1.1em;
+
+	margin-left: 20px;
+}
+
+.secondary-field.lead-name {
+	font-size: 1em;
+}
+
+
+.secondary-field.colead-name {
+	font-size: 1em;
+}
+
+.secondary-field.title {
+	font-size: 1.5em;
+	margin: 20px;
+}
+
+.secondary-panel.right {
+	display: inline-block;
+	width: auto;
+	max-height: 70%;
+	overflow: scroll;
+}
+
+.no-secondary {
+	display: none;
+}
+
+.exit-button {
+	background:rgb(80,80,150);
+	cursor: pointer;
+	position: fixed:
+	top: 12px;
+	left: 12px;
+	padding: 6px;
+	
+	color: white;
+}
+
+.main {
+	display:inline-block;
+	position: absolute;
+	top: 55px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	width: 100%;
+	min-height: calc(100% - 55px);
+}
+
+.main .full{
+	display:inline-block;
+	width:100%;
+	height:100%;
+}
+
+/*
+ * To make images inline instead of blocking
+ */
+.inline-icon {
+	display: inline-block;
+}
+
+
+/* Tabs Demo 1 */
+.tabs input[type=radio] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+.tabs {
+  width: 80%;
+  float: none;
+  list-style: none;
+  position: relative;
+  padding: 0;
+  margin: 20px auto;
+}
+.tabs li{
+  float: left;
+}
+.tabs label {
+    display: block;
+    padding: 10px 20px;
+    border-radius: 4px 4px 0 0;
+    color: #009688;
+    font-size: 24px;
+    font-weight: normal;
+    font-family: 'Roboto', helveti;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    position: relative;
+    top: 3px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.tabs label:hover {
+  background: rgba(255,255,255,0.5);
+  top: 0;
+}
+
+[id^=tab]:checked + label {
+  background: #009688;
+  color: white;
+  top: 0;
+}
+
+[id^=tab]:checked ~ [id^=tab-content] {
+    display: block;
+}
+
+.tab-content{
+  z-index: 2;
+  display: none;
+  text-align: left;
+  width: 100%;
+  font-size: 20px;
+  line-height: 140%;
+  padding-top: 10px;
+  padding: 15px;
+  position: absolute;
+  top: 53px;
+  left: 0;
+  box-sizing: border-box;
+  -webkit-animation-duration: 0.5s;
+  -o-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  
+  min-height: 450px;
+}
+
+.card-item {
+  width: 100%;
+  height: auto;
+  margin: 24px 0 0 0;
+  padding-top: 12px;
+  padding-left: 16px;
+  padding-bottom: 12px;
+  padding-right: 12px;
+  
+  display:inline-block;
+  cursor: pointer;
+  
+  vertical-align: middle;
+}
+
+.card-item .subcommittee {
+	display: inline-block;
+	width: 17%;
+	height: auto;
+	background: rgba(20,20,20,.24);
+	
+	text-align: center;
+	color: white;
+	font-size: .5em;
+}
+
+.card-item .vote-icon {
+	display:inline-block;
+	width: 5%;
+	height: auto;
+}
+
+.hidden-backdrop {
+	width: 100%;
+	height: 100%;
+	background: rgba(20,20,20,.5);
+	z-index:10;
+	position: fixed;
+	left: 0;
+	top:0;
+	right:0;
+	bottom:0;
+}
+
+.view-document {
+	width: 120px;
+	height: 75px;
+	padding-top: 12px;
+	padding-left: 16px;
+	padding-bottom: 12px;
+	padding-right: 12px;
+
+	margin-top: 12px;
+	margin-bottom: 12px;
+
+	display:inline-block;
+	cursor: pointer;
+	z-index: 12;
+}
+
+.unfunded {
+	/*
+		color: #B71C1C;
+	*/
+}
+
+.funded {
+	/* 
+	color: #1B5E20;
+	*/
+}
+
+.proposal-title {
+	font-size: 1.2em;
+	display:inline-block;
+	margin-top:12px;
+	margin-bottom: 4px;
+}
+
+.proposal-info {
+	display: inline-block;
+	width: 75%;
+}
+
+.lead-name {
+	font-size: .8em;
+}
+
+.colead-name {
+	font-size: .7em;
+}
+
+.click-me-text {
+	color: blue;
+}
+
+/*
+ * Card Grids
+ */
+.product-card {
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+    background: rgb(300,300,300);
+    z-index: 10; 
+    
+    color: black;
+    
+    overflow: visible;
+    margin: 5px 5px;
+    text-align: left;
+    vertical-align: text-top;
+}
+
+.product-card .field {
+    margin: 5px;
+}
+
+.product-card .name {
+    font-size: 1.2em;
+    text-align: center;
+    display: block;
+}
+/*
+ * //End Card Grids
+ */
+
+.copyright-notice {
+	font-size: .7em;
+	position: absolute;
+	bottom: 2px;
+	width: 100%;
+	text-align: center;
+}
+
+
+
+.floating-action-button {
+	position:fixed;
+	bottom:5%;
+	right: 5%;
+	z-index: 15;
+}
+
+.new-letter-fab {
+}
+
+.nav-button {
+	display: inline-block;
+	height: 100%;
+	width: auto;
+	padding:8px;
+	font-size: 2em;
+	
+	color: white;
+	
+	cursor: pointer;
+}
+
+
+.search-button {
+	width: 40px;
+	height: 100%;
+	vertical-align: top;
+}
+
+.rising-card:hover {
+	cursor: pointer;
+}
+
+.low-rising-card:hover {
+	cursor: pointer;
+}
+
+.search-toolbox {
+	width: 60%;
+	padding: 8px;
+	text-align: left;
+	font-size: 1em;
+	
+	background: #08C;
+}
+
+.search-tool-btn {
+	text-align: center;
+	margin-top: 10px;
+	display: inline-block;
+    padding: 10px 20px;
+    border-radius: 2px 2px 0 0;
+    color: #08C;
+    
+    font-size: 1.1em;
+    font-weight: normal;
+    font-family: 'Roboto', helveti;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.subcommittee {
+	display: inline-block;
+	width: 32%;
+	height: auto;
+	min-height: 80px;
+	padding: 5px;
+	text-align: center;
+	vertical-align: top;
+}
+
+.subcommittee .name {
+	display:inline-block;
+	text-align: center;
+}
+
+.subcommittee .check-box-wrapper {
+	display: inline-block;
+	text-align:center;
+}
+
+.subcommittee .check-box {
+	display: inline-block;
+	float: right;
+}
+
+.display-ib {
+	display: inline-block;
+}
+
+.display-none {
+	display: none;
+}
+
+.search-tool-type {
+	border-bottom: 2px solid black;
+}
+
+.middle-child-wrapper {
+	display: inline-block;
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+
+.apply-filter {
+	display: inline-block;
+}
+
+.feed-label {
+	text-align: center;
+	color: #777777;
+}
+
+.horiz-grid-option {
+	display: inline-block;
+	height: 95%;
+	margin: 8px;
+	text-align: center;
+}
+
+/*
+ * Useful styling options
+ */
+.one-third {
+	width: 30%;
+}
+.one-half {
+	width: 45%;
+}
+.one-fourth {
+	width: 22%;
+}
+
+/***********************************
+ * Workflow Diagramming
+ ***********************************/
+ .workflow-diagram {
+ 	height: 100%;
+	overflow: auto;
+ }
+
+.workflow-sequence-item {
+	padding:12px;
+	text-align:center;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	width: auto;
+}
+
+.workflow-stage-item {
+	display: inline-block;
+	padding: 8px;
+	text-align: center;
+	margin-top:4px;
+	margin-bottom: 4px;
+	margin-right: 8px;
+}
+
+.workflow-stage-item.completed{
+	background: green;
+}
+
+.workflow-stage-item.current{
+	background: yellow;
+}
+
+.workflow-stage-item.future {
+	background: rgba(10,10,10,.1);
+}
+
+.workflow-stage-item.failed {
+	background: red;
+}
+
+.workflow-box-connection {
+	background: black;
+}
+
+.workflow-action-button {
+	padding-top:4px;
+	padding-bottom:4px;
+	padding-right:4px;
+	padding-left:4px;
+	margin-top:4px;
+	margin-bottom:4px;
+	margin-left:4px;
+	margin-right:4px;
+	display:inline-block;
+}
+
+.workflow-action-button.advance {
+	background: #4CAF50;
+}
+
+.workflow-action-button.undo {
+	background: #E040FB;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(odd) {
+    background-color: #dddddd;
+}
+
+.sidebar {
+        position:absolute;
+        top: 0;
+        left: 0;
+        height: calc(100% - 12px);
+        width: 30%;
+        z-index: 5;
+
+        overflow: scroll;
+        margin: 5px 5px;
+        text-align: left;
+        vertical-align: text-top;
+}
+
+.sidebar .main-title {
+    font-size: 1.5em;
+    padding: 20px 0;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+
+.sidebar .option {
+    display: block;
+    height: auto;
+}
+
+.sidebar .option .info{
+    color: rgba(0,0,0,0.54);
+    margin: 8px 0px;
+    padding: 0 12px;
+    text-align: left;
+}
+
+.sidebar .option .title {
+    color: rgb(0,0,0);
+    font-size: 1.3em;
+    padding: 15px 12px;
+}
+
+.sidebar .option .sub-options {
+        padding-left: 12px;
+        padding-bottom: 12px;
+}
+
+.sidebar .tile-button {
+        display:inline-block;
+        width: 31%;
+        height: 175px;
+        position: relative;
+}
+
+.sidebar .tile-button .tile-image {
+        display: inline-block;
+        width:100%;
+        height:100%;
+        background-repeat: no-repeat;
+        background-size: contain;
+}
+
+.sidebar .tile-button .tile-label {
+        position: absolute;
+        bottom:1px;
+        left: 0px;
+        right: 0px;
+        width: 100%;
+        text-align: center;
+        height: auto;
+        background: rgba(0,0,0,.8);
+        color: white;
+}
+
+/***********************************
+ * Nav Bar
+ ***********************************/
+
+.nav-top {
+        display: block;
+        height: 55px;
+        width: 100%;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        z-index: 7;
+}
+
+.nav-title {
+        font-size: 2em;
+		font-weight: bold;
+        color: white;
+}
+
+.nav-button {
+        display: inline-block;
+        height: 100%;
+        width: auto;
+        padding: 8px;
+        font-size: 1.5em;
+
+        color: white;
+}
+
+.nav-top .menu{
+        display: inline-block;
+        width: auto;
+        height: 100%;
+}
+
+.nav-top .search-bar {
+  width: 50%;
+  height: 40px;
+  margin-top:8px;
+  
+  display:inline-block;
+  cursor: text;
+  background: white;
+  
+  border: none;
+  
+  font-size: 2em;
+}
+
+.nav-top .search-input {
+	width: calc(100% - 48px);
+	height: 100%;
+	position: relative;
+	
+	vertical-align: top;
+}
+
+.nav-top .bar {
+        position: fixed;
+        height: 55px;
+        width: auto;
+        right: 10px;
+}
+
+.nav-bar-left {
+        display: inline-block;
+        height: auto;
+        position: absolute;
+		left: 12px;
+		top: 12px;
+} 
+
+
+.nav-top-secondary {
+	position: fixed;
+	height: 55px;
+	width: 100%;
+	top: 56px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	z-index: 9;
+}
+
+
+/***********************************
+ * File Uploading
+ * https://css-tricks.com/examples/DragAndDropFileUploading/?submit-on-demand
+ ***********************************/
+
+.upload-container
+{
+width: 100%;
+max-width: 680px; /* 800 */
+text-align: center;
+margin: 0 auto;
+}
+
+.upload-container h1
+{
+font-size: 42px;
+font-weight: 300;
+color: #0f3c4b;
+margin-bottom: 40px;
+}
+
+.upload-container h1 a:hover,
+.upload-container h1 a:focus
+{
+	color: #39bfd3;
+}
+
+.upload-container nav
+{
+	margin-bottom: 40px;
+}
+.upload-container nav a
+{
+	border-bottom: 2px solid #c8dadf;
+	display: inline-block;
+	padding: 4px 8px;
+	margin: 0 5px;
+}
+.upload-container nav a.is-selected
+{
+	font-weight: 700;
+	color: #39bfd3;
+	border-bottom-color: currentColor;
+}
+.upload-container nav a:not( .is-selected ):hover,
+.upload-container nav a:not( .is-selected ):focus
+{
+	border-bottom-color: #0f3c4b;
+}
+
+.upload-container footer
+{
+	color: #92b0b3;
+	margin-top: 40px;
+}
+.upload-container footer p + p
+{
+	margin-top: 1em;
+}
+.upload-container footer a:hover,
+.upload-container footer a:focus
+{
+	color: #39bfd3;
+}
+
+.box
+{
+	font-size: 1.25rem; /* 20 */
+	background-color: #c8dadf;
+	position: relative;
+	padding: 100px 20px;
+}
+.box.has-advanced-upload
+{
+	outline: 2px dashed #92b0b3;
+	outline-offset: -10px;
+
+	-webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+	transition: outline-offset .15s ease-in-out, background-color .15s linear;
+	}
+.box.is-dragover
+{
+	outline-offset: -20px;
+	outline-color: #c8dadf;
+	background-color: #fff;
+}
+.box__dragndrop,
+.box__icon
+{
+	display: none;
+}
+.box.has-advanced-upload .box__dragndrop
+{
+	display: inline;
+}
+.box.has-advanced-upload .box__icon
+{
+	width: 100%;
+	height: 80px;
+	background: #92b0b3;
+	display: block;
+	margin-bottom: 40px;
+}
+
+.box.is-uploading .box__input,
+.box.is-success .box__input,
+.box.is-error .box__input
+{
+	visibility: hidden;
+}
+
+.box__uploading,
+.box__success,
+.box__error
+{
+	display: none;
+}
+.box.is-uploading .box__uploading,
+.box.is-success .box__success,
+.box.is-error .box__error
+{
+	display: block;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	left: 0;
+
+	-webkit-transform: translateY( -50% );
+	transform: translateY( -50% );
+}
+.box__uploading
+{
+	font-style: italic;
+}
+.box__success
+{
+	-webkit-animation: appear-from-inside .25s ease-in-out;
+	animation: appear-from-inside .25s ease-in-out;
+}
+@-webkit-keyframes appear-from-inside
+{
+	from	{ -webkit-transform: translateY( -50% ) scale( 0 ); }
+	75%		{ -webkit-transform: translateY( -50% ) scale( 1.1 ); }
+	to		{ -webkit-transform: translateY( -50% ) scale( 1 ); }
+}
+@keyframes appear-from-inside
+{
+	from	{ transform: translateY( -50% ) scale( 0 ); }
+	75%		{ transform: translateY( -50% ) scale( 1.1 ); }
+	to		{ transform: translateY( -50% ) scale( 1 ); }
+}
+
+.box__restart
+{
+	font-weight: 700;
+}
+.box__restart:focus,
+.box__restart:hover
+{
+	color: #39bfd3;
+}
+
+.js .box__file
+{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.js .box__file + label
+{
+	max-width: 80%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	cursor: pointer;
+	display: inline-block;
+	overflow: hidden;
+}
+.js .box__file + label:hover strong,
+.box__file:focus + label strong,
+.box__file.has-focus + label strong
+{
+	color: #39bfd3;
+}
+.js .box__file:focus + label,
+.js .box__file.has-focus + label
+{
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+.no-js .box__file + label
+{
+	display: none;
+}
+
+.no-js .box__button
+{
+	display: block;
+}
+.box__button
+{
+	font-weight: 700;
+	color: #e5edf1;
+	background-color: #39bfd3;
+	display: block;
+	padding: 8px 16px;
+	margin: 40px auto 0;
+}
+
+.box__button:hover,
+.box__button:focus
+{
+	background-color: #0f3c4b;
+}
+
+/***********************************
+ * Form Formatting
+ * PureCSS pure-form
+ ***********************************/
+ .focus-form input[type="text"] {
+ 	width: 80%;
+ 	height: 1.5em;
+ 	display: inline-block;
+ 	margin: 8px 5px;
+ 	
+ 	text-align: center;
+ }
+ .pure-form input[type="text"],
+.pure-form input[type="password"],
+.pure-form input[type="email"],
+.pure-form input[type="url"],
+.pure-form input[type="date"],
+.pure-form input[type="month"],
+.pure-form input[type="time"],
+.pure-form input[type="datetime"],
+.pure-form input[type="datetime-local"],
+.pure-form input[type="week"],
+.pure-form input[type="number"],
+.pure-form input[type="search"],
+.pure-form input[type="tel"],
+.pure-form input[type="color"],
+.pure-form select,
+.pure-form textarea {
+    padding: 0.5em 0.6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.pure-form input:not([type]) {
+    padding: 0.5em 0.6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/* Chrome (as of v.32/34 on OS X) needs additional room for color to display. */
+/* May be able to remove this tweak as color inputs become more standardized across browsers. */
+.pure-form input[type="color"] {
+    padding: 0.2em 0.5em;
+}
+
+
+.pure-form input[type="text"]:focus,
+.pure-form input[type="password"]:focus,
+.pure-form input[type="email"]:focus,
+.pure-form input[type="url"]:focus,
+.pure-form input[type="date"]:focus,
+.pure-form input[type="month"]:focus,
+.pure-form input[type="time"]:focus,
+.pure-form input[type="datetime"]:focus,
+.pure-form input[type="datetime-local"]:focus,
+.pure-form input[type="week"]:focus,
+.pure-form input[type="number"]:focus,
+.pure-form input[type="search"]:focus,
+.pure-form input[type="tel"]:focus,
+.pure-form input[type="color"]:focus,
+.pure-form select:focus,
+.pure-form textarea:focus {
+    outline: 0;
+    border-color: #129FEA;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.pure-form input:not([type]):focus {
+    outline: 0;
+    border-color: #129FEA;
+}
+
+.pure-form input[type="file"]:focus,
+.pure-form input[type="radio"]:focus,
+.pure-form input[type="checkbox"]:focus {
+    outline: thin solid #129FEA;
+    outline: 1px auto #129FEA;
+}
+.pure-form .pure-checkbox,
+.pure-form .pure-radio {
+    margin: 0.5em 0;
+    display: block;
+}
+
+.pure-form input[type="text"][disabled],
+.pure-form input[type="password"][disabled],
+.pure-form input[type="email"][disabled],
+.pure-form input[type="url"][disabled],
+.pure-form input[type="date"][disabled],
+.pure-form input[type="month"][disabled],
+.pure-form input[type="time"][disabled],
+.pure-form input[type="datetime"][disabled],
+.pure-form input[type="datetime-local"][disabled],
+.pure-form input[type="week"][disabled],
+.pure-form input[type="number"][disabled],
+.pure-form input[type="search"][disabled],
+.pure-form input[type="tel"][disabled],
+.pure-form input[type="color"][disabled],
+.pure-form select[disabled],
+.pure-form textarea[disabled] {
+    cursor: not-allowed;
+    background-color: #eaeded;
+    color: #cad2d3;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.pure-form input:not([type])[disabled] {
+    cursor: not-allowed;
+    background-color: #eaeded;
+    color: #cad2d3;
+}
+.pure-form input[readonly],
+.pure-form select[readonly],
+.pure-form textarea[readonly] {
+    background-color: #eee; /* menu hover bg color */
+    color: #777; /* menu text color */
+    border-color: #ccc;
+}
+
+.pure-form input:focus:invalid,
+.pure-form textarea:focus:invalid,
+.pure-form select:focus:invalid {
+    color: #b94a48;
+    border-color: #e9322d;
+}
+.pure-form input[type="file"]:focus:invalid:focus,
+.pure-form input[type="radio"]:focus:invalid:focus,
+.pure-form input[type="checkbox"]:focus:invalid:focus {
+    outline-color: #e9322d;
+}
+.pure-form select {
+    /* Normalizes the height; padding is not sufficient. */
+    height: 2.25em;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+.pure-form select[multiple] {
+    height: auto;
+}
+.pure-form label {
+    margin: 0.5em 0 0.2em;
+}
+.pure-form fieldset {
+    margin: 0;
+    padding: 0.35em 0 0.75em;
+    border: 0;
+}
+.pure-form legend {
+    display: block;
+    width: 100%;
+    padding: 0.3em 0;
+    margin-bottom: 0.3em;
+    color: #333;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.pure-form-stacked input[type="text"],
+.pure-form-stacked input[type="password"],
+.pure-form-stacked input[type="email"],
+.pure-form-stacked input[type="url"],
+.pure-form-stacked input[type="date"],
+.pure-form-stacked input[type="month"],
+.pure-form-stacked input[type="time"],
+.pure-form-stacked input[type="datetime"],
+.pure-form-stacked input[type="datetime-local"],
+.pure-form-stacked input[type="week"],
+.pure-form-stacked input[type="number"],
+.pure-form-stacked input[type="search"],
+.pure-form-stacked input[type="tel"],
+.pure-form-stacked input[type="color"],
+.pure-form-stacked input[type="file"],
+.pure-form-stacked select,
+.pure-form-stacked label,
+.pure-form-stacked textarea {
+    display: block;
+    margin: 0.25em 0;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.left-aligned {
+	text-align: left;
+}
+
+.center-aligned {
+	text-align: center;
+}
+
+.right-aligned {
+	text-align: right;
+}
+
+
+#new-letter-body .pure-control-group .message { 
+	font-size: .7em;
+	font-weight: normal;
+}
+
+#new-letter-body .pure-control-group input {
+	font-size: .7em;
+	font-weight: normal;
+}
+
+#new-letter-body .pure-control-group select {
+	font-size: .7em;
+	font-weight: normal;
+}
+
+#new-letter-body .pure-control-group label {
+	font-size: .7em;
+	font-weight: normal;
+}
+
+.pure-form-stacked input:not([type]) {
+    display: block;
+    margin: 0.25em 0;
+}
+.pure-form-aligned input,
+.pure-form-aligned textarea,
+.pure-form-aligned select,
+/* NOTE: pure-help-inline is deprecated. Use .pure-form-message-inline instead. */
+.pure-form-aligned .pure-help-inline,
+.pure-form-message-inline {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+}
+.pure-form-aligned textarea {
+    vertical-align: top;
+}
+
+/* Aligned Forms */
+.pure-form-aligned .pure-control-group {
+    margin-bottom: 0.5em;
+}
+.pure-form-aligned .pure-control-group label {
+    text-align: right;
+    display: inline-block;
+    vertical-align: middle;
+    width: 10em;
+    margin: 0 1em 0 0;
+}
+.pure-form-aligned .pure-controls {
+    margin: 1.5em 0 0 11em;
+}
+
+/* Rounded Inputs */
+.pure-form input.pure-input-rounded,
+.pure-form .pure-input-rounded {
+    border-radius: 2em;
+    padding: 0.5em 1em;
+}
+
+/* Grouped Inputs */
+.pure-form .pure-group fieldset {
+    margin-bottom: 10px;
+}
+.pure-form .pure-group input,
+.pure-form .pure-group textarea {
+    display: block;
+    padding: 10px;
+    margin: 0 0 -1px;
+    border-radius: 0;
+    position: relative;
+    top: -1px;
+}
+.pure-form .pure-group input:focus,
+.pure-form .pure-group textarea:focus {
+    z-index: 3;
+}
+.pure-form .pure-group input:first-child,
+.pure-form .pure-group textarea:first-child {
+    top: 1px;
+    border-radius: 4px 4px 0 0;
+    margin: 0;
+}
+.pure-form .pure-group input:first-child:last-child,
+.pure-form .pure-group textarea:first-child:last-child {
+    top: 1px;
+    border-radius: 4px;
+    margin: 0;
+}
+.pure-form .pure-group input:last-child,
+.pure-form .pure-group textarea:last-child {
+    top: -2px;
+    border-radius: 0 0 4px 4px;
+    margin: 0;
+}
+.pure-form .pure-group button {
+    margin: 0.35em 0;
+}
+
+.pure-form .pure-input-1 {
+    width: 100%;
+}
+.pure-form .pure-input-2-3 {
+    width: 66%;
+}
+.pure-form .pure-input-1-2 {
+    width: 50%;
+}
+.pure-form .pure-input-1-3 {
+    width: 33%;
+}
+.pure-form .pure-input-1-4 {
+    width: 25%;
+}
+
+/* Inline help for forms */
+/* NOTE: pure-help-inline is deprecated. Use .pure-form-message-inline instead. */
+.pure-form .pure-help-inline,
+.pure-form-message-inline {
+    display: inline-block;
+    padding-left: 0.3em;
+    color: #666;
+    vertical-align: middle;
+    font-size: 0.875em;
+}
+
+/* Block help for forms */
+.pure-form-message {
+    display: block;
+    color: #666;
+    font-size: 0.875em;
+}
+
+@media only screen and (max-width : 480px) {
+    .pure-form button[type="submit"] {
+        margin: 0.7em 0 0;
+    }
+
+    .pure-form input:not([type]),
+    .pure-form input[type="text"],
+    .pure-form input[type="password"],
+    .pure-form input[type="email"],
+    .pure-form input[type="url"],
+    .pure-form input[type="date"],
+    .pure-form input[type="month"],
+    .pure-form input[type="time"],
+    .pure-form input[type="datetime"],
+    .pure-form input[type="datetime-local"],
+    .pure-form input[type="week"],
+    .pure-form input[type="number"],
+    .pure-form input[type="search"],
+    .pure-form input[type="tel"],
+    .pure-form input[type="color"],
+    .pure-form label {
+        margin-bottom: 0.3em;
+        display: block;
+    }
+
+    .pure-group input:not([type]),
+    .pure-group input[type="text"],
+    .pure-group input[type="password"],
+    .pure-group input[type="email"],
+    .pure-group input[type="url"],
+    .pure-group input[type="date"],
+    .pure-group input[type="month"],
+    .pure-group input[type="time"],
+    .pure-group input[type="datetime"],
+    .pure-group input[type="datetime-local"],
+    .pure-group input[type="week"],
+    .pure-group input[type="number"],
+    .pure-group input[type="search"],
+    .pure-group input[type="tel"],
+    .pure-group input[type="color"] {
+        margin-bottom: 0;
+    }
+
+    .pure-form-aligned .pure-control-group label {
+        margin-bottom: 0.3em;
+        text-align: left;
+        display: block;
+        width: 100%;
+    }
+
+    .pure-form-aligned .pure-controls {
+        margin: 1.5em 0 0 0;
+    }
+
+    /* NOTE: pure-help-inline is deprecated. Use .pure-form-message-inline instead. */
+    .pure-form .pure-help-inline,
+    .pure-form-message-inline,
+    .pure-form-message {
+        display: block;
+        font-size: 0.75em;
+        /* Increased bottom padding to make it group with its related input element. */
+        padding: 0.2em 0 0.8em;
+    }
+}
+
+/***********************************
+ * Loading Symbol
+ * 
+ ***********************************/
+.spinner {
+  -webkit-animation: rotator 1.4s linear infinite;
+          animation: rotator 1.4s linear infinite;
+}
+
+.loading {
+	text-align: center;
+	height: 100px;
+	width: 100%;
+	display:inline-block;
+}
+
+@-webkit-keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+}
+
+@keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+}
+.path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+          animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+
+@-webkit-keyframes colors {
+  0% {
+    stroke: #4285F4;
+  }
+  25% {
+    stroke: #DE3E35;
+  }
+  50% {
+    stroke: #F7C223;
+  }
+  75% {
+    stroke: #1B9A59;
+  }
+  100% {
+    stroke: #4285F4;
+  }
+}
+
+@keyframes colors {
+  0% {
+    stroke: #4285F4;
+  }
+  25% {
+    stroke: #DE3E35;
+  }
+  50% {
+    stroke: #F7C223;
+  }
+  75% {
+    stroke: #1B9A59;
+  }
+  100% {
+    stroke: #4285F4;
+  }
+}
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+            transform: rotate(450deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+            transform: rotate(450deg);
+  }
+}
+
+
+
+/***********************************
+ * All Color Schemes Below This Line
+ ***********************************/
+
+.dark-primary-color {
+	/*
+	 * blue
+	 background: #1976D2;
+	 */
+
+	/*
+	 * teal
+	 */
+	background: #004D40;
+	
+
+	/*
+	 * 
+	 * blue-gray
+	  background: #263238;
+	 */
+}
+
+.primary-color {
+	/*
+	 * blue 
+	background: #2196F3;
+	 */
+	
+	/*
+	 * teal 
+	 */
+	background: #009688;
+
+	/*
+	 * blue-gray
+	 *background: #607D8B;
+	 */
+}
+
+.light-primary-color {
+	background: #80CBC4;
+}
+
+.lightest-background-color {
+	background: white;
+}
+
+.dark-text {
+	color: black;
+}
+
+.accent {
+	background: #FF4081;
+	/*background: #7C4DFF;
+	 */
+	color: white;
+}
+
+.accent-color {
+	background: #FF5252
+}
+
+.primary-text {
+	color: #FFFFFF;
+}
+
+.secondary-text {
+	color: #727272;
+}
+
+.divider-color {
+	border: #B6B6B6;
+}
+
+.main-bg-color {
+	background: rgb(220,220,220);
+}

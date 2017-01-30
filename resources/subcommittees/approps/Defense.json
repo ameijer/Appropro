@@ -1,0 +1,9 @@
+{
+	"name": "Defense",
+	"nickname": "Defense",
+        "committee": "Appropriations",
+	"description": "Funding requirements for the United States military are laid out in the U.S Constitution. In addition to the general requirement that funds withdrawn from the Treasury only through \"appropriations made by law\" (Article I, Section 9), the Constitution gives Congress the authority to \"raise and support Armies,\" but limits funding for the military to a maximum of two years (Article I, Section 8). This restriction is generally not an issue for Congress, since by law, the federal budget operates on a year-to-year basis. \n The subcommittee oversees overall funding for the Department of Defense, including the Army, Navy, Air Force. The subcommittee is also responsible for funding for the Central Intelligence Agency. \n Some defense agencies are the responsibility of separate subcommittees. Funding for military construction activities, such as military personnel housing and infrastructure, and veterans issues are handled by the Subcommittee on Military Construction, Veterans Affairs, and Related Agencies. Funding for the U.S. Army Corps of Engineers is handled by the Subcommittee on Energy and Water Development.",
+	"color":"#60b750",
+	"chair": { "first": "Thad", "last": "Cochran" },
+        "rankingMember": { "first": "Dick", "last": "Durbin" }
+}

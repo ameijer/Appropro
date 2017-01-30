@@ -1,0 +1,9 @@
+{
+	"name": "Commerce, Justice, Science, and Related Agencies",
+	"nickname": "Commerce, Justice, Science",
+        "committee": "Appropriations",
+	"description": "This subcommittee is responsible for discretionary spending at the Commerce Department and the Justice Department, as well various independent federal agencies, such as the International Trade Commission, the National Aeronautics and Space Administration, the National Science Foundation, and the U.S. Commission on Civil Rights.",
+	"color":"#d0473c",
+	"chair": { "first": "Richard", "last": "Shelby" },
+        "rankingMember": { "first": "Barbara", "last": "Mikulski" }
+}

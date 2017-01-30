@@ -1,0 +1,9 @@
+{
+	"name": "Transportation, Housing and Urban Development, and Related Agencies",
+	"nickname": "Transportation, Housing, and Urban Development",
+        "committee": "Appropriations",
+	"description": "This subcommittee has jurisdiction funding for the Department of Housing and Urban Development and the Department of Transportation. It also oversees funding for the Federal Housing Administration and economic and community development programs, such as Community Development Block Grants. Specific agencies under its jurisdiction are the Federal Aviation Administration, the National Transportation Safety Board, the Surface Transportation Board, and the Washington Metropolitan Area Transit Authority.",
+	"color": "#c16f58",
+	"chair": { "first": "Susan", "last": "Collins" },
+        "rankingMember": { "first": "John", "last": "Reed" }
+}

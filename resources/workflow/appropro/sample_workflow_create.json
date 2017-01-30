@@ -1,0 +1,82 @@
+[
+  {
+    "name" : "CREATED",
+    "sequence" : 0,
+    "description" : "Created new letter",
+    "permittedGroups" : ["LEGE", "MANAGER"],
+    "actions" : ["PUBLISH_CREATED_TO_OFFICE"]
+  },
+  {
+    "name" : "Requested",
+    "sequence" : 1,
+    "description": "The area focus group is editing the letter",
+    "permittedGroups" : ["LEGE"]
+  },
+  {
+    "name" : "Considering",
+    "sequence" : 2,
+    "description": "The letter is evaluated by office staff to decide its merit",
+    "permittedGroups" : ["LEGE"],
+    "actions" : ["NOTIFY_CONSIDERING"]
+  },
+  {
+    "name" : "Drafting Memo",
+    "sequence" : 3,
+    "description": "The memo for signature collection is being drafted",
+    "permittedGroups" : ["LEGE"]
+  },
+  {
+    "name" : "LA Approval",
+    "sequence" : 4,
+    "description": "The letter is evaluated by the LD",
+    "permittedGroups" : ["LEGE"]
+  },
+  {
+    "name" : "LD Approval",
+    "sequence" : 5,
+    "description": "The letter is evaluated by the LD",
+    "permittedGroups" : ["LEGE"]
+  },
+  {
+    "name" : "Senator Approval",
+    "sequence" : 6,
+    "description": "The senator gives final approval on the letter",
+    "permittedGroups" : ["LEGE"],
+    "actions" : ["NOTIFY_DPCC", "PUSH_DPCC_FEED", "OPEN_SIGNATURES"]
+  },
+  {
+    "name" : "Push To DPCC Feed",
+    "sequence" : 7,
+    "description": "The senator gives final approval on the letter",
+    "permittedGroups" : ["LEGE"],
+    "actions" : ["PUSH_DPCC_FEED", "OPEN_SIGNATURES"]
+  },
+  {
+    "name" : "Email DPCC",
+    "sequence" : 7,
+    "description": "The senator gives final approval on the letter",
+    "permittedGroups" : ["LEGE"],
+    "actions" : ["NOTIFY_DPCC", "PUSH_DPCC_FEED", "OPEN_SIGNATURES"]
+  },
+  {
+    "name" : "Review Signon Lists",
+    "sequence" : 8,
+    "description": "After collecting cosigners, the list of cosigners is reviewed",
+    "permittedGroups" : ["LEGE"],
+    "actions" : ["CLOSE_SIGNATURES", "COLLECT_SIGNATURES"]
+  },
+  {
+    "name" : "Collect signatures",
+    "sequence" : 9,
+    "description": "The letter is printed out physically and signatures are obtained",
+    "permittedGroups" : ["FRONT_OFFICE, INTERN, LEGE"],
+    "actions" : ["SUBMITTED_TO_COMMITTEE"]
+  },
+  {
+    "name" : "Submit To Subcommittee",
+    "sequence" : 10,
+    "description": "The letter is sent to subcommittee",
+    "permittedGroups" : ["FRONT_OFFICE, INTERN, LEGE"],
+    "actions" : ["SUBMITTED_TO_COMMITTEE"]
+  }
+]

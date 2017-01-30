@@ -1,0 +1,61 @@
+/* Custom Stylesheet */
+/*
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 100;
+    text-align: center;
+    font-family: helvetica;
+}
+*/
+.floating {
+	resize: both;
+	overflow: auto;
+}
+
+.letter-info {
+	z-index: 5;
+	width: 30%;
+	height: 60%;
+	
+	position: fixed;
+	top: 10%;
+	right: 10%;
+	
+}
+
+.vertical-section .main-title {
+	font-size: 1.5em;
+	margin: 20px 0;
+	text-align: center;
+	display: block;
+	width: 100%;
+}
+/*
+.main {
+	display:inline-block;
+}
+*/
+h2 {
+	margin: 20px;
+}
+
+.account-section {
+	display: block;	
+	height: 100px;
+}
+
+.account-section .info{
+	color: rgba(0,0,0,0.54);
+    margin: 8px 0px;
+    padding: 0 12px;
+    text-align: left;
+}
+
+.account-section .title {
+	color: rgb(0,0,0);
+	font-size: 1.3em;
+	margin: 15px 12px;
+}

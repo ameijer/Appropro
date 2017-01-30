@@ -1,0 +1,9 @@
+{
+	"name": "Labor, Health and Human Services, Education, and Related Agencies",
+	"nickname": "Labor, Health, and Education",
+        "committee": "Appropriations",
+	"description": "This subcommittee oversees funding for the Departments of Education, Health and Human Services, and Labor. Certain agencies within Health and Human Services are handled by separate subcommittees, such as the Indian Health Service (Interior Subcommittee) and the Food and Drug Administration (Agriculture Subcommittee). \n It also oversees funding for several related labor, health, and education agencies, including the Corporation for National and Community Service, Corporation for Public Broadcasting, the Mine Safety and Health Administration, and the Occupational Safety and Health Administration.",
+	"color": "#c85782",
+	"chair": { "first": "Roy", "last": "Blunt" },
+        "rankingMember": { "first": "Patty", "last": "Murray" }
+}

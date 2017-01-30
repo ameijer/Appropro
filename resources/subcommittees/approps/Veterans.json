@@ -1,0 +1,9 @@
+{
+	"name": "Military Construction, Veterans Affairs, and Related Agencies",
+	"nickname": "Military and Veterans' Affairs",
+        "committee": "Appropriations",
+	"description": "This subcommittee is responsible for funding the Department of Veterans Affairs and all construction activities within the Department of Defense, including military family housing. It also funds activities related to base closures and realignments, the American Battle Monuments Commission, and the U.S. Court of Appeals for Veterans Claims.",
+	"color": "#678ccc",
+	"chair": { "first": "Mark", "last": "Kirk" },
+        "rankingMember": { "first": "Jon", "last": "Tester" }
+}

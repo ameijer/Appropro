@@ -1,0 +1,139 @@
+<!--
+@Date:   2017-01-15T22:06:07-05:00
+@Filename: index.html
+@Last modified time: 2017-01-29T16:31:03-05:00
+@License: Distributed under the MIT license: https://opensource.org/licenses/MIT
+@Copyright: Copyright (c) 2017 Alex Meijer and Aidan Hoolachan
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Editor</title>
+	<link rel="shortcut icon" href="../file/favicon.gif">
+	<link rel="stylesheet" type="text/css" href="/css/default.css" />
+
+	<!-- Edit Below -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/css/LetterEditor.css" />
+	<link rel="stylesheet" type="text/css" href="/css/lib/w3.css">
+
+	<script src="/js/modernizr.js"></script>
+	<script src="/js/etherpad-jquery-plugin.js"></script>
+	<script src="/js/reactivity.js"></script>
+	<script src="/js/CookieHandler.js"></script>
+	<script src="/js/workflow.js"></script>
+
+	<body>
+		<!-- Top Navi -->
+		<div class="main">
+			<div id="letter-editor" class="full">
+			</div>
+			<div class="sidebar lightest-background-color dark-text w3-card-4 display-ib">
+				<!--
+						<div class="workflow-diagram">
+						</div>
+						-->
+				<div class="option w3-card-2">
+					<div class="title">Workflow Status</div>
+					<div class="description">
+						<div class="workflow-table-wrapper">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="nav-top clearfix w3-card-4 dark-primary-color primary-text">
+			<span class="nav-bar-left" style="display: inline-block; width: 250px;">
+					<span class="sidebar-toggle w3-card-2 rising-card">
+                        <i class="material-icons">menu</i>
+                	</span>
+			<span class="nav-title">Editor</span>
+			</span>
+			<span class="bar">
+					<span class="nav-button login w3-card-2 rising-card selected account-mgmt">
+						<img class="display-ib user-icon" src="/img/ic_account_box_white_48dp_1x.png"/>
+					</span>
+			</span>
+		</div>
+		<script>
+			//TODO: Destroy the letter, it wasn't created properly!'
+
+			var letterInfoGet = $.ajax({
+				'method': 'get',
+				'url': '/letters/ether-id/' + letterId,
+			});
+
+			var whoAmIGet = $.ajax({
+				'method': 'get',
+				'url': '/who-am-I',
+			});
+
+			$(document).ready(function() {
+				var currentUser = "";
+
+				CookieHandler.setup();
+				Reactivity.setupCards();
+				//WorkflowDiagram.setup();
+				WorkflowDiagram.setupTable();
+
+				letterInfoGet.then(function(results, err) {
+					//WorkflowDiagram.render(results);
+					WorkflowDiagram.setLetter(results);
+					WorkflowDiagram.renderTable();
+				});
+
+				$('.sidebar-toggle').click(function() {
+					if ($('.sidebar').hasClass('display-ib')) {
+						$('.sidebar').addClass('display-none').removeClass('display-ib');
+					} else {
+						$('.sidebar').addClass('display-ib').removeClass('display-none');
+					}
+				});
+
+				whoAmIGet.then(function(results) {
+					var user = results.user;
+					$('#letter-editor').pad({
+						'padId': letterId,
+						'host': 'https://appropro.co', // the host and port of the Etherpad instance, by default the foundation will host your pads for you
+						'baseUrl': '/editor/p/', // The base URL of the pads
+						'showControls': true, // If you want to show controls IE bold, italic, etc.
+						'showChat': true, // If you want to show the chat button or not
+						'showLineNumbers': false, // If you want to show the line numbers or not
+						'userName': user.username, // The username you want to pass to the pad
+						'useMonospaceFont': false, // Use monospaced fonts
+						'noColors': false, // Disable background colors on author text
+						'userColor': false, // The background color of this authors text in hex format IE #000
+						'hideQRCode': true, // Hide QR code
+						'alwaysShowChat': false, // Always show the chat on the UI
+						'width': '100%',
+						'height': '100%',
+						'border': 0, // The width of the border (make sure to append px to a numerical value)
+						'borderStyle': 'solid', // The CSS style of the border [none, dotted, dashed, solid, double, groove, ridge, inset, outset]
+						'plugins': {
+							'pageview': 'true',
+						}
+					});
+				}, function(err) {
+					window.alert('There was an error retrieving your account information. Please try logging in again and contact the IT service center if the problem persists.');
+				});
+
+				$('.account-mgmt').click(function() {
+					window.open('https://manage.appropro.co/account');
+				});
+
+				$('.toolkit').click(function() {
+					window.open('/Toolkit');
+				});
+			});
+		</script>
+	</body>
+
+</html>

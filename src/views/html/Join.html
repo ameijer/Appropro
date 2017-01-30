@@ -1,0 +1,92 @@
+<!--
+@Date:   2017-01-15T22:06:07-05:00
+@Filename: Join.html
+@Last modified time: 2017-01-29T16:19:31-05:00
+@License: Distributed under the MIT license: https://opensource.org/licenses/MIT
+@Copyright: Copyright (c) 2017 Alex Meijer and Aidan Hoolachan
+-->
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Senator Suite Login</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="Author for Onextrapixel" />
+	<link rel="shortcut icon" href="../file/favicon.gif">
+	<link rel="stylesheet" type="text/css" href="css/default.css" />
+
+	<!-- Edit Below -->
+	<link rel="stylesheet" type="text/css" href="css/loginStyle.css" />
+	<link rel='stylesheet' type='text/css' href='css/animate.min.css' />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/home.css" />
+	<link rel="stylesheet" href="css/lib/w3.css">
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="/js/reactivity.js"></script>
+</head>
+
+<body>
+	<h1>Join Appropros</h1>
+	<div>
+		<p>Register</p>
+		<form action="/register" method="post">
+			<input name="username" type="text" maxLength="512" id="rUsernameField" />
+			<br>
+			<input name="password" type="password" maxlength="25" id="rPasswordField" />
+			<br>
+			<input name="email" type="email" id="rEmailField" />
+			<br>
+			<button name="doRegister" onclick="doRegister()">Register</button>
+		</form>
+	</div>
+
+	<script>
+		function User(userName, password) {
+			this.password = password;
+			this.firstName = 'Aidan';
+			this.email = 'aidan.test@senate.dickballs.gov';
+			this.lastName = 'Test';
+			this.signUpDate = null;
+			this.lastSeen = null;
+			this.userShards = null;
+			this.history = null;
+			this.username = userName;
+
+			return this;
+		}
+
+
+		function doRegister() {
+			var usernameField = document.getElementById('rUsernameField');
+			var userName = usernameField.value;
+			var passwordField = document.getElementById('rPasswordField');
+			var password = passwordField.value;
+			var emailField = document.getElementById('rEmailField');
+			var email = emailField.value;
+
+			var user = new User(userName, password);
+			user.email = email;
+
+			var r = new XMLHttpRequest();
+			r.open("POST", "/register", true);
+			r.onreadystatechange = function() {
+				if (r.readyState != 4 || r.status != 200) return;
+				console.log(r);
+			};
+			r.setRequestHeader('Content-Type', 'application/json');
+
+			r.send(JSON.stringify(user));
+		}
+	</script>
+
+</body>
+
+</html>

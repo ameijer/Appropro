@@ -1,0 +1,68 @@
+/* Custom Stylesheet */
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 100;
+    text-align: center;
+    font-family: helvetica;
+}
+
+.login-backdrop {
+	height: 75%;
+	width: 60%;
+	display: inline-block;
+	background: rgb(300,300,300);
+	z-index: 10;
+	position: fixed;
+	left: 20%;
+	top: 20%;
+	
+	color: black;
+	
+	overflow: scroll;
+  	margin: 0 auto;
+  	text-align: center;
+}
+
+.login-column {
+	margin-top: 20px;
+	display: inline-block;
+	width: 40%;
+	text-align: center;
+}
+
+.bottom-row {
+	display: block;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+
+.bottom-link {
+	cursor: pointer;
+}
+
+.main {
+	display:inline-block;
+}
+
+.login-button {
+  width: 120px;
+  height: 75px;
+  padding-top: 12px;
+  padding-left: 16px;
+  padding-bottom: 12px;
+  padding-right: 12px;
+  
+  background: rgb(80,80,175);
+  color: white;
+  position: fixed;
+  bottom: 8%;
+  right: 22%;
+  
+  display:inline-block;
+  cursor: pointer;
+  z-index: 12;
+}

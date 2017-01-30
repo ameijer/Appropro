@@ -1,0 +1,431 @@
+<!--
+@Date:   2017-01-15T22:06:07-05:00
+@Filename: index.html
+@Last modified time: 2017-01-29T16:28:01-05:00
+@License: Distributed under the MIT license: https://opensource.org/licenses/MIT
+@Copyright: Copyright (c) 2017 Alex Meijer and Aidan Hoolachan
+-->
+
+
+
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>New Letter</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="Aidan Hoolachan" />
+	<link rel="shortcut icon" href="../file/favicon.gif">
+	<link rel="stylesheet" type="text/css" href="css/default.css" />
+
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" href="css/lib/w3.css" />
+	<link rel="stylesheet" href="css/landing.css" />
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="/js/etherpad-jquery-plugin.js"></script>
+	<script src="/js/reactivity.js"></script>
+	<script src="/js/CookieHandler.js"></script>
+	<script>
+		//remove this if you use Modernizr
+		(function(e, t, n) {
+			var r = e.querySelectorAll("html")[0];
+			r.className = r.className.replace(/(^|\s)no-js(\s|$)/, "$1js$2")
+		})(document, window, 0);
+	</script>
+</head>
+
+<body class="main-bg-color">
+	<div class="container">
+		<!-- Top Navi -->
+		<div class="nav-top clearfix w3-card-4 dark-primary-color">
+			<span class="nav-title">New Letter</span>
+		</div>
+		<div class="main">
+			<div class="left-aligned lightest-background-color dark-text blank-form">
+				<h2>Letter Information</h2>
+				<form action="/newLetter" method="post" id="blank-letter-form" class="create-blank pure-form pure-form-aligned blank-letter-form parsed-submit">
+					<fieldset>
+						<div class="pure-control-group">
+							<label for="title">Title</label>
+							<input id="title" class="title" name="title" type="text" placeholder="Letter Title"></input>
+							<span for="title" class="title message"></span>
+						</div>
+						<div class="pure-control-group">
+							<label for="lead">Lead</label>
+							<span class="lead" id="lead">
+								</span>
+							<div class="pure-control-group">
+								<label for="colead">Co-lead</label>
+								<select class="colead-dropdown" id="colead" name="offices_-_colead" type="text">
+									<option name="no-selection" value="no-selection">Select a Colead</option>
+								</select>
+								<span for="colead" class="colead message"></span>
+							</div>
+							<div class="pure-control-group">
+								<label for="subcommittee">Subcommittee</label>
+								<select id="subcommittee" class="subcommittee-dropdown" name="subcommittee">
+									<option name="no-selection" value="no-selection">Select a subcommittee</option>
+								</select>
+								<span for="subcommittee" class="subcommittee-message message"></span>
+							</div>
+							<div class="pure-control-group">
+								<label for="funding-year">Funding Year</label>
+								<select class="funding-year" id="funding-year" name="FY">
+									<option name="2015">2015</option>
+									<option name="2016">2016</option>
+									<option name="2017">2017</option>
+									<option name="2018">2018</option>
+									<option name="2019">2019</option>
+									<option name="2020">2020</option>
+								</select>
+								<span for="funding-year" class="funding-year message"></span>
+							</div>
+							<div class="pure-control-group">
+								<label for="funding-amount">Amount Requested</label>
+								<input id="funding-amount" name="fundingAmount" type="number" placeholder="Amount Requested" />
+								<span for="funding-amount" class="funding-amount message"></span>
+							</div>
+							<div class="pure-control-group">
+								<label for="date-introduced">Date Created</label>
+								<input class="date-input" id="date-introduced" name="dateIntroduced" type="date" placeholder="Date Created" />
+								<span for="date-introduced" class="date-introduced message"></span>
+							</div>
+							<div class="pure-control-group import">
+								<label for="file-import">File to Import</label>
+								<span id="file-import" class="file-upload">
+									<label for="file-upload"><strong class="file-name">Choose a file</strong></label>
+									<input type="file" name="files[]" id="file-upload" class="box__file"/>
+								</span>
+								<span for="file-import" class="file-import message"></span>
+							</div>
+							<div class="pure-control-group">
+								<label for="create-submit">Create</label>
+								<button type="button" class="submit accent" id="create-submit">Create Letter</button>
+								<span for="create-submit" class="create-submit message"></span>
+							</div>
+					</fieldset>
+				</form>
+				<div>Note: You will be able to edit a blank letter or import a document (.doc, .docx, .pdf) from your computer during the next stage.</div>
+				</div>
+			</div>
+			<!-- main-->
+		</div>
+		<!-- Container -->
+		<script>
+			var dates = document.getElementsByClassName('date-input');
+			dates[0].valueAsDate = new Date();
+
+
+
+			var officesAjax = $.ajax({
+				type: "POST",
+				dataType: "json",
+				url: "/congress",
+				data: '{returnType: "name"}'
+			});
+
+			function displayOffice(o) {
+				var toDisplay = '<option value="' + o._id + '">' + o.name.last + ', ' + o.name.first + '</option>';
+				return toDisplay;
+			}
+
+			function addOffice(o) {
+				$(displayOffice(o)).appendTo('.colead-dropdown');
+				return;
+			}
+
+			officesAjax.done(function(results, status) {
+				if (status == "success") {
+					if (results.congress.length > 0) {
+						results.congress.forEach(function(o) {
+							addOffice(o);
+						});
+					} else {
+						//TODO: Could not load offices, add spinny thing.
+					}
+				}
+			});
+
+			var subcommitteeGet = $.ajax({
+				type: "GET",
+				dataType: "json",
+				url: "/subcommittees"
+			});
+
+			function displayItem(sub) {
+				var toDisplay = '<option value="' + sub._id + '">' + sub.name + '</option>';
+				return toDisplay;
+			}
+
+			function addSubcommittee(sub) {
+				$(displayItem(sub)).appendTo('.subcommittee-dropdown');
+				return;
+			}
+
+			subcommitteeGet.done(function(results, status) {
+				if (status == "success") {
+					if (results.subcommittees.length > 0) {
+						results.subcommittees.forEach(function(sub) {
+							addSubcommittee(sub);
+						});
+					} else {
+						//TODO: Could not load subcommittees, add spinny thing.
+					}
+				}
+			});
+
+			var whoAmIGet = $.ajax({
+				type: "GET",
+				dataType: "json",
+				url: "/who-am-i"
+			});
+
+			var currentUser = null;
+
+			whoAmIGet.done(function(results, status) {
+				if (status == "success") {
+					currentUser = results.user;
+					console.log(currentUser);
+					if (typeof currentUser.office !== "undefined" && currentUser.office !== null) {
+						$('.lead').html(currentUser.office.name.official_full);
+					}
+				}
+			});
+
+			$(document).ready(function() {
+
+				Reactivity.setupCards();
+				CookieHandler.setup();
+
+				$('.file-upload').click(function(e) {
+					$(this).find('input[type="file"]').click();
+				});
+
+				$('.file-upload input').click(function(e) {
+					//e.preventDefault();
+					e.stopPropagation();
+				});
+
+				var showFiles = function(files) {
+					$('.file-name').text(files[0].name);
+				}
+
+				$('.file-upload').each(function() {
+					$(this).find('input[type="file"]').on('change', function(e) {
+						showFiles(e.target.files);
+					});
+				});
+
+				function launchImportForm() {
+					$('.select-creation-method').removeClass('display-ib').addClass('display-none');
+					$('.blank-form').removeClass('display-none').addClass('display-ib');
+					$('.secondary').addClass('no-secondary');
+					$('.hidden-backdrop').addClass('no-secondary');
+					isSecondaryShowing = false;
+				}
+
+				function hideImportFields() {
+					$('.import-field').addClass('display-none');
+				}
+
+				$('.launch-create-blank').click(function() {
+					hideImportFields();
+					$('.select-creation-method').removeClass('display-ib').addClass('display-none');
+					$('.blank-form').removeClass('display-none').addClass('display-ib');
+				});
+
+				$('.blank-form .exit-button').click(function() {
+					$('.select-creation-method').removeClass('display-none').addClass('display-ib');
+					$('.blank-form').removeClass('display-ib').addClass('display-none');
+				});
+
+				$('.launch-use-template').click(function() {
+					$('.select-creation-method').removeClass('display-ib').addClass('display-none');
+					$('.select-template').removeClass('display-none').addClass('display-ib');
+				});
+
+				$('.select-template .exit-button').click(function() {
+					$('.select-creation-method').removeClass('display-none').addClass('display-ib');
+					$('.select-template').removeClass('display-ib').addClass('display-none');
+				});
+
+				$('.launch-import-letter').click(function() {
+					$('.select-creation-method').removeClass('display-ib').addClass('display-none');
+					$('.import-options').removeClass('display-none').addClass('display-ib');
+				});
+
+				$('.import-options .exit-button').click(function() {
+					$('.select-creation-method').removeClass('display-none').addClass('display-ib');
+					$('.import-options').removeClass('display-ib').addClass('display-none');
+				});
+
+				var isSecondaryShowing = false;
+				$('.profile-picture-btn').click(function() {
+					if (isSecondaryShowing) {
+						$('.secondary').addClass('no-secondary');
+						$('.hidden-backdrop').addClass('no-secondary');
+						isSecondaryShowing = false;
+					} else {
+						$('.secondary').removeClass('no-secondary');
+						$('.hidden-backdrop').removeClass('no-secondary');
+						isSecondaryShowing = true;
+					}
+				});
+
+				$('.secondary-exit').click(function() {
+					$('.secondary').addClass('no-secondary');
+					$('.hidden-backdrop').addClass('no-secondary');
+					isSecondaryShowing = false;
+				});
+			});
+
+			function putMessage(messageClass, message) {
+				$('form.create-blank .' + messageClass + '.message').text(message);
+			}
+
+			function clearAllMessages() {
+				$('.message').text('');
+			}
+
+			function clearMessage(messageClasses) {
+				var toClear = [].concat(messageClasses);
+				//TODO: cclear messages
+			}
+
+			function validateCreationForm(formDiv) {
+				var $form = $(formDiv);
+
+				var isValid = true;
+
+				//Want to check each option and give user feedback
+				//It only takes one invalid field to invalidate
+				//validateSomething() must come before && isValid in order to guarantee execution.
+
+				clearAllMessages();
+
+				isValid = validateTitle($form.find('.title').val()) && isValid;
+				isValid = validateColead($form.find('.colead-dropdown').val()) && isValid;
+				isValid = validateSubcommittee($form.find('.subcommittee-dropdown').val()) && isValid;
+				isValid = validateFundingYear($form.find('.funding-year').val()) && isValid;
+				isValid = validateFundingAmount($form.find('.funding-amount').val()) && isValid;
+				isValid = validateDateCreated($form.find('.date-introduced').val()) && isValid;
+				isValid = validateFileImport($form.find('.file-import')) && isValid;
+
+				return isValid;
+			};
+
+			function validateTitle(title) {
+				var isValid = true;
+
+				if (typeof title === 'undefined' || title === null || title === '') {
+					isValid = false;
+					putMessage('title', 'Must choose a title.');
+					return isValid;
+				}
+
+				if (isValid.length < 3) {
+					putMessage("Title must be at least 3 letters long.");
+					isValid = false;
+				}
+
+				return isValid;
+			}
+
+			function validateColead(colead) {
+				var isValid = true;
+
+				console.log(colead === 'no-selection');
+				if (typeof colead === 'undefined' || colead === null || colead === "" || colead === 'no-selection') {
+					putMessage('colead', 'Choose a colead');
+					isValid = false;
+				}
+
+				return isValid;
+			}
+
+			function validateSubcommittee(sub) {
+				var isValid = true;
+
+				if (typeof sub === 'undefined' || sub === null || sub === '' || sub === 'no-selection') {
+					putMessage('subcommittee-message', 'Choose a subcommittee.');
+					isValid = false;
+				}
+
+				return isValid;
+			}
+
+			function validateFundingYear(fundingYear) {
+				var isValid = true;
+
+				if (typeof fundingYear === 'undefined' || fundingYear === null) {
+					putMessage('funding-year', 'Choose a funding year.');
+					isValid = false;
+					return isValid;
+				}
+
+				if (fundingYear < 0) {
+					isValid = false;
+				}
+
+				return isValid;
+			}
+
+			function validateFundingAmount(funding) {
+				var isValid = true;
+
+				if (typeof funding === 'undefined' || funding === null) {
+					putMessage('funding-amount', 'Choose a funding amount.');
+					isValid = false;
+				}
+
+				return isValid;
+			}
+
+			function validateDateCreated(dateCreated) {
+				var isValid = true;
+
+				if (typeof dateCreated === 'undefined' || dateCreated === null) {
+					putMessage('date-created', 'When was this letter initially created?');
+					isValid = false;
+					return isValid;
+				}
+
+				return isValid;
+			}
+
+			function validateFileImport() {
+				return true;
+			}
+
+			$('.blank-letter-form.parsed-submit').each(function() {
+				var $form = $(this);
+				$form.find('button.submit').click(function(e) {
+					if (validateCreationForm($form)) {
+						var toSubmitObj = $form.serializeObject();
+						var toSubmit = JSON.stringify(toSubmitObj);
+						$.ajax({
+							method: 'post',
+							url: '/newLetter',
+							data: toSubmit,
+							dataType: "json",
+							contentType: "application/json",
+							success: function(resp) {
+								onLetterCreated(resp);
+							},
+						});
+						return false;
+					}
+				});
+			});
+
+			// applying the effect for every form
+			function onLetterCreated(resp) {
+				window.location.href = 'https://www.appropro.co/web-editor/' + resp.docId;
+			}
+		</script>
+</body>
+
+</html>
